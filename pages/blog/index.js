@@ -13,9 +13,6 @@ export default function Blog({ slugs }) {
           </li>
         ))}
       </ul>
-      <Link href='/blog' locale='es'>
-        <a>Change to espanish</a>
-      </Link>
     </div>
   )
 }

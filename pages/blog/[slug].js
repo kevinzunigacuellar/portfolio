@@ -2,7 +2,6 @@ import Head from 'next/head'
 import path from 'path'
 import matter from 'gray-matter'
 import { markdownToHtml, readDirectory, readFile } from 'lib/serverSideScripts'
-
 export default function Post({ contents, data }) {
   return (
     <div>
