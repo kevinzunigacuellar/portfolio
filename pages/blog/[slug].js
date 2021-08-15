@@ -16,20 +16,26 @@ export default function Post({ contents, data }) {
   )
 }
 
-export const getStaticPaths = async () => {
-  const files = readDirectory(path.join(process.cwd(), 'posts'))
-  const paths = files.map(filename => ({
-    params: { slug: filename.replace('.md', '') },
-  }))
+export const getStaticPaths = async ({ locales }) => {
+  const paths = []
+  for (const locale of locales) {
+    const files = readDirectory(path.join(process.cwd(), 'posts', locale))
+    for (const file of files) {
+      paths.push({
+        params: { slug: file.replace('.md', '') },
+        locale: locale,
+      })
+    }
+  }
   return {
     paths,
     fallback: false,
   }
 }
 
-export const getStaticProps = async ({ params: { slug } }) => {
+export const getStaticProps = async ({ params: { slug }, locale }) => {
   const markdownWithMetadata = readFile(
-    path.join(process.cwd(), 'posts', slug + '.md'),
+    path.join(process.cwd(), 'posts', locale, slug + '.md'),
     'utf8'
   )
   const parsedMarkedown = matter(markdownWithMetadata)
