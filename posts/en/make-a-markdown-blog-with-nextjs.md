@@ -2,7 +2,7 @@
 title: Make a markdown blog with NextJS
 description: "Learn how to make a static site generation blog with NextJS using markdown"
 ---
-# How to make a blog with Next.js and Markdown 
+## How to make a blog with Next.js and Markdown 
 ---
 ### When to use Markdown?
 
@@ -10,7 +10,7 @@ Markdown is a great tool to create websites with dense content such as: blogs or
 
 ### Why Next.js?
 
-NextJS is a react framework that has two forms of pre-rendering: Static Site Generatior (SSG) and Server Side Rendering (SSR). To create a blog (were most of the information is static) we will use SSG to generate all our blog pages at build time.
+Next.js is a react framework that has two forms of pre-rendering: Static Site Generatior (SSG) and Server Side Rendering (SSR). To create a blog (were most of the information is static) we will use SSG to generate all our blog pages at build time.
 
 ### Libraries
 
@@ -35,7 +35,7 @@ npx create-next-app
 yarn create next-app
 ```
 
-Create a top-level directory called **posts**. Here we will create our markdown posts. To start lets create two posts. 
+Create a top-level directory called **posts**. Here we will store our markdown data. Let's begin by creating two posts. 
 
 ```
 /posts/first-post.md
@@ -57,11 +57,15 @@ description: My second post
 
 This is my second post.
 ```
-Inside pages create a new folder called blog. Inside blog create a file called [slug].js
+Let's go back to the root folder and look a for folder named **pages**. Inside pages create a new folder called blog. Inside blog create a new file named [slug].js
 
-In [slug].js create a new react component name Post and define getStaticProps and getStaticPaths.
+For Next.js a file name with square brackets indicates that its a dynamic path. The name between the brackets will be used as a variable to generate new paths.
+
+We create a blog folder so the route of our new blog will be `example.com/blog/[name-of-the-post]`
+
+In [slug].js create a new react component named **Post** and create two asynchronous functions: **getStaticProps** and **getStaticPaths**.
 ```
-/pages/blog/Post.js
+/pages/blog/[slug].js
 
 import fs from 'fs'
 import path from 'path'
@@ -89,15 +93,23 @@ export const getStaticProps = async () => {
 }
 
 ```
+So why did we created these two functions? These two functions together will allow us to generate a page for each of our markdown files.
 
-[getStaticPaths](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation) is used to pre-render specific paths. Inside paths we can specify the parameters for each pre-rendered page. 
+Let's begin with `getStaticPaths`
 
-Set fallback to false to pre-render paths only at build time. Here is an example:
+[getStaticPaths](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation) is used to pre-render specific paths. It returns an object that cointains two required properties: paths and fallback.
+
+1. Paths is an array of objects that contains all generated url paths for every post. Each object should have a params object that contains the name of the dynamic file, in this case slug, with its path name.
+
+2. Fallback is a boolean. If true Next.js will create a fallback page that the user will be redirected in case it doesn't find the requested path. If false it will return a 404. 
+
+For a static blog, we will set fallback to **false**, so in case the user enters a path that was not generated at build time I will return a 404 page. Here is an example of how the return should look like:
+
 ```
 return {
   paths: [
-    { params: { slug: '1' } },
-    { params: { slug: '2' } }
+    { params: { slug: 'path-1' } },
+    { params: { slug: 'path-2' } }
   ],
   fallback: false
 }
@@ -115,28 +127,23 @@ export const getStaticPaths = async () => {
   }
 }
 ```
-1. Read the folder posts which returns and array with the name of the files that are inside.
+1. readdirSync will read the folder posts and return an array with the name of the files that are inside.
 ```
-const files = fs.readdirSync('posts')  
-// returns files = ['first-post.md','second-post.md]
+const files = fs.readdirSync('posts')
 ```
-2. Remove the '.md' and create a path array of objects with params and slug.
+2. map will interate every element in files; remove the '.md' and return paths as an object.
 ```
 const paths = files.map(filename => ({
     params: { slug: filename.replace('.md', '') },
   }))
-  // paths would look like this:
-    paths: [
-        { params: { slug: 'first-post' } },
-        { params: { slug: 'second-post' } }
-    ],
 ```
 [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) is used to pre-render the page content. It returns a props object which contains any information that we would like to pass to a component. 
 
 When used with getStaticPaths (like in this example) it requires an object as a parameter. Here is an example how the object looks like.
 ```
 export const getStaticProps = async (context) = {
-  // context : { params: {slug} }
+  console.log(context)
+  // context = { params: { slug } }
 }
 ```
 This is how our final code for getStaticProps looks like let's dive into each line to see what happening:
@@ -156,18 +163,15 @@ export const getStaticProps = async ({ params: { slug } }) => {
   }
 }
 ```
-1. Destructure the object parameter in one line to get the slug.
+1. Destructure the parameter in one line to get the slug.
 ```
 getStaticProps({ params: { slug } })
-// returns slug
 ```
 2. Use path.join to get the file path for the slug
 ```
 path.join('posts', slug + '.md')
-// for the first post it returns:
-// posts/first-post.md
 ```
-3. Read markdown and converts it to a string
+3. readFileSync reads a file and converts it to a string
 ```
 const markdownWithMetadata = fs.readFileSync(
   path.join('posts', slug + '.md'),
@@ -176,17 +180,8 @@ const markdownWithMetadata = fs.readFileSync(
 4. Use gray-matter to parse the metadata and the content for a markdown
 ```
 const parsedMarkdown = matter(markdownWithMetadata)
-/* returns:
-  parsedMarkdown = {
-    data:{
-      title,
-      description
-    }
-    content,
-  } 
-*/
 ```
-5. Convert the parsed markdown to html
+5. Convert the parsed markdown content to html
 ```
 const htmlContent = await markdownToHtml(parsedMarkedown.content)
 ```
@@ -264,22 +259,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
       data: parsedMarkedown.data,
     },
   }
-}
-```
-Don't forget about your markdownToHtml function.
-```
-// lib/markdownToHtml.js
-
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkHtml from 'remark-html'
-
-const markdownToHtml = async markdown => {
-  const processedContent = await unified()
-    .use(remarkParse)
-    .use(remarkHtml)
-    .process(markdown)
-  return processedContent.toString()
 }
 ```
 All thats left to do is to run start you development server.
