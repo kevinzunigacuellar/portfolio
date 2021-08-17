@@ -269,3 +269,4 @@ yarn dev
 npm run dev
 ```
 Assuming that your server is running in port 3000, you can visit your [first-post](http://localhost:3000/blog/first-post) and [second-post](http://localhost:3000/blog/second-post)
+
