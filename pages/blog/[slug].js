@@ -1,7 +1,10 @@
 import Head from 'next/head'
-import path from 'path'
 import matter from 'gray-matter'
-import { markdownToHtml, readDirectory, readFile } from 'lib/serverSideScripts'
+import {
+  markdownToHtml,
+  readPostsDirectory,
+  readMarkdown,
+} from 'lib/serverSideScripts'
 export default function Post({ contents, data }) {
   return (
     <div>
@@ -18,7 +21,7 @@ export default function Post({ contents, data }) {
 export const getStaticPaths = async ({ locales }) => {
   const paths = []
   for (const locale of locales) {
-    const files = readDirectory(path.join(process.cwd(), 'posts', locale))
+    const files = readPostsDirectory(locale)
     for (const file of files) {
       paths.push({
         params: { slug: file.replace('.md', '') },
@@ -33,10 +36,7 @@ export const getStaticPaths = async ({ locales }) => {
 }
 
 export const getStaticProps = async ({ params: { slug }, locale }) => {
-  const markdownWithMetadata = readFile(
-    path.join(process.cwd(), 'posts', locale, slug + '.md'),
-    'utf8'
-  )
+  const markdownWithMetadata = readMarkdown(locale, slug)
   const parsedMarkedown = matter(markdownWithMetadata)
   const htmlContent = await markdownToHtml(parsedMarkedown.content)
   return {

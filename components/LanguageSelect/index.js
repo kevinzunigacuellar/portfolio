@@ -21,8 +21,8 @@ export default function LanguageSelect() {
     <div className='w-20'>
       <Listbox value={selected} onChange={setSelected}>
         <div className='relative'>
-          <Listbox.Button className='relative w-full py-2 pl-3 pr-10 text-left bg-white text-sm rounded-lg shadow-md cursor-default focus:outline-none'>
-            <span className='block truncate'>{selected.name}</span>
+          <Listbox.Button className='relative w-full py-2 pl-3 pr-2 text-left bg-white text-sm rounded-md cursor-default focus:outline-none focus:ring'>
+            <span className='block'>{selected.name}</span>
             <span className='absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'>
               <SelectorIcon
                 className='w-5 h-5 text-gray-400'
@@ -35,7 +35,7 @@ export default function LanguageSelect() {
             leave='transition ease-in duration-100'
             leaveFrom='opacity-100'
             leaveTo='opacity-0'>
-            <Listbox.Options className='absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
+            <Listbox.Options className='absolute w-full py-1 mt-1 overflow-auto bg-white rounded-md shadow-md max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none text-sm'>
               {languages.map(language => (
                 <Listbox.Option
                   key={language.id}

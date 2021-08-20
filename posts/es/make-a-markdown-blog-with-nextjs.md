@@ -1,11 +1,10 @@
 ---
-id: md-blog-with-nextjs
-title: Make a markdown blog with Next.js
+id: md-blog-con-nextjs
 url: make-a-markdown-blog-with-nextjs
-description: "Learn how to make a static blog with Next.js and markdown"
-date: 08-01-2021
+title: Crea un blog con archivos markdown y Next.js
+description: " Aprenda a crear un blog estatico Learn how to make a static blog with NextJS and markdown"
 ---
-## How to make a blog with Next.js and Markdown 
+## Como hacer un blog con Next.js y markdown
 ---
 ### When to use Markdown?
 
