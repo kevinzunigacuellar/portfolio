@@ -36,7 +36,7 @@ export const getStaticPaths = async ({ locales }) => {
 }
 
 export const getStaticProps = async ({ params: { slug }, locale }) => {
-  const markdownWithMetadata = readMarkdown(locale, slug)
+  const markdownWithMetadata = readMarkdown(locale, slug + '.md')
   const parsedMarkedown = matter(markdownWithMetadata)
   const htmlContent = await markdownToHtml(parsedMarkedown.content)
   return {
