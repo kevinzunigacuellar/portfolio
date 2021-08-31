@@ -21,7 +21,7 @@ export default function LanguageSelect() {
     <div className='w-20'>
       <Listbox value={selected} onChange={setSelected}>
         <div className='relative'>
-          <Listbox.Button className='relative w-full py-2 pl-3 pr-2 text-left bg-white text-sm rounded-md cursor-default focus:outline-none focus:ring'>
+          <Listbox.Button className='relative w-full py-2 pl-3 pr-2 text-left bg-white text-sm rounded-md cursor-default focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-600 focus:ring-gray-200 focus:ring-opacity-50'>
             <span className='block'>{selected.name}</span>
             <span className='absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'>
               <SelectorIcon

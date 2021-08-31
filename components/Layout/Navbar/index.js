@@ -8,19 +8,19 @@ const navigation = [
     name: { en: 'Home', es: 'Inicio' },
     href: '/',
     style:
-      'antialiased block px-3 py-1 text-white hover:bg-gray-700 rounded focus:outline-none focus:ring',
+      'antialiased block px-3 py-1 text-white hover:bg-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700',
   },
   {
     name: { en: 'About', es: 'Acerca' },
     href: '/about',
     style:
-      'antialiased mt-1 block px-3 py-1 text-white hover:bg-gray-700 rounded sm:mt-0 sm:ml-4 focus:outline-none focus:ring',
+      'antialiased mt-1 block px-3 py-1 text-white hover:bg-gray-700 rounded sm:mt-0 sm:ml-4 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700',
   },
   {
     name: { en: 'Blog', es: 'Blog' },
     href: '/blog',
     style:
-      'antialiased mt-1 block px-3 py-1 text-white hover:bg-gray-700 rounded sm:mt-0 sm:ml-4 focus:outline-none focus:ring',
+      'antialiased mt-1 block px-3 py-1 text-white hover:bg-gray-700 rounded sm:mt-0 sm:ml-4 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700',
   },
 ]
 
@@ -44,7 +44,7 @@ export default function Navbar({ setDark, dark }) {
           <div className='sm:hidden'>
             <button
               type='button'
-              className='p-1 text-gray-100 focus:text-white hover:text-white focus:outline-none rounded focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700'
+              className='p-1 text-gray-100 focus:text-white focus:outline-none rounded focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700'
               onClick={handleMenuExpand}>
               <svg
                 className='h-6 w-6 fill-current'
@@ -70,7 +70,7 @@ export default function Navbar({ setDark, dark }) {
           </div>
           <div className='flex items-center'>
             <button
-              className='p-1 mr-3 text-gray-100 focus:text-white hover:bg-gray-500 focus:outline-none rounded focus:ring'
+              className='p-1 mr-3 text-gray-100 focus:text-white hover:bg-gray-700 focus:outline-none rounded focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700'
               onClick={handleToggleDarkTheme}>
               <svg
                 className='h-6 w-6'
