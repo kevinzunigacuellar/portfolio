@@ -1,7 +1,17 @@
-export default function BookShelf() {
+import Title from 'components/Title'
+import { bookShelfData } from 'data/data'
+export default function BookShelf({ bookShelfDataLocale }) {
   return (
     <div>
-      <pre>I love reading</pre>
+      <Title>{bookShelfDataLocale.pageTitle}</Title>
+      <p>{bookShelfDataLocale.pageDescription}</p>
     </div>
   )
+}
+
+export async function getStaticProps({ locale }) {
+  const bookShelfDataLocale = bookShelfData[locale]
+  return {
+    props: { bookShelfDataLocale },
+  }
 }
