@@ -2,21 +2,26 @@
 url: make-a-markdown-blog-with-nextjs
 title: Crea un blog con archivos markdown y Next.js
 date: Agosto 01, 2021
-description: "Aprenda a crear un blog estatico con Next.js y markdown"
+description: 'Aprenda a crear un blog estatico con Next.js y markdown'
 ---
+
 ## Como hacer un blog con Next.js y markdown
+
 ---
-### When to use Markdown?
 
-Markdown is a great tool to create websites with dense content such as: blogs or documentation. It allows the author to spend less time coding HTML elements and CSS styles and more time to focus on the content.
+### ¿Cuando usar markdown?
 
-### Why Next.js?
+Markdown es una buena herramienta para crear paginas web con alto contenido estatico como: blogs o documentacion. De esta forma el autor no tiene que pasar mucho tiempo escribiendo elementos en HTML o CSS y puede enfocarse mas en el contenido.
 
-Next.js is a react framework that has two forms of pre-rendering: Static Site Generatior (SSG) and Server Side Rendering (SSR). To create a blog (were most of the information is static) we will use SSG to generate all our blog pages at build time.
+### ¿Por que Next.js?
 
-### Libraries
+Next.js es una plataforma para react que cuenta con dos formas de pre-renderizado: Por un lado tenemos: Static Site Generator (SSG) o generador de paginas estaticas en espanol y Server side rendering (SSR) o tambien llamado renderizado por parte del servidor.
 
-To code our Next.js markdown blog we will need a few libraries.
+Para un blog donde mucho contenido es estatico y no varia mucho la mejor opcion es generador de paginas estaticas (SSG) porque podemos generar todas las paginas de los articulos al momento de crear nuestra aplicacion. Esto mejora muchisimo el rendimiento de nuestra pagina ya que el contenido siempre estara listo para mostrar al internet
+
+### Bibliotecas:
+
+Para escribir nuestra aplicación de blog necesitaremos las siguientes bibliotecas:
 
 ```
 yarn add gray-matter
@@ -24,12 +29,12 @@ yarn add remark
 yarn add remark-html
 ```
 
-1. [gray-matter](https://github.com/jonschlinkert/gray-matter) is a front matter parser that will help us parse the metadata from the markdown files.
-2. [remark](https://github.com/remarkjs/remark) is a markdown parser that will help us parse our markdown content into HTML.
+1. [gray-matter](https://github.com/jonschlinkert/gray-matter) es un analizador de archivos markdown que nos ayudara procesar los metadatos como fechas, titulos, etc.
+2. [remark](https://github.com/remarkjs/remark) es otro analizador de archivos markdown que nos ayudara a separar metadatos escritos en markdown de contenidol de los articulos.
 
-### Let's begin:
+### Empezemos:
 
-The first step is to create a next application. To create a project, run:
+El primer paso es crear una aplicación next. Para crearla escribimos:
 
 ```
 npx create-next-app
@@ -37,7 +42,7 @@ npx create-next-app
 yarn create next-app
 ```
 
-Create a top-level directory called **posts**. Here we will store our markdown data. Let's begin by creating two posts. 
+Crea una carpeta en el directorio mas alto del proyecto con el nombre de posts. Aqui es donde guardaremos los articulos en formato markdown. Empezemos creando articulos aqui hay un ejemplo.
 
 ```
 /posts/first-post.md
@@ -49,6 +54,7 @@ description: My first post
 
 This is my first post.
 ```
+
 ```
 /posts/second-post.md
 ---
@@ -59,13 +65,15 @@ description: My second post
 
 This is my second post.
 ```
-Let's go back to the root folder and look a for folder named **pages**. Inside pages create a new folder called blog. Inside blog create a new file named [slug].js
 
-For Next.js a file name with square brackets indicates that its a dynamic path. The name between the brackets will be used as a variable to generate new paths.
+Volvamos a la carpeta raiz del proyecto y buscamos una carpeta llamada pages. En pages crearemos una carpeta llamada blog y dentro de blog crearemos un archivo javascript llamado [slug].js
 
-We create a blog folder so the route of our new blog will be `example.com/blog/[name-of-the-post]`
+Para Next.js un archivo que tiene el nombre entre corchetes significa que es una ruta variable y que el nombre dentro de los corchetes es el nombre de la variable que generara nuevas rutas.
 
-In [slug].js create a new react component named **Post** and create two asynchronous functions: **getStaticProps** and **getStaticPaths**.
+La razon porque creamos esta ruta variable dentro de la carpeta blog es porque queremos que la ruta de nuestro blog sea `example.com/blog/[name-of-the-post]`.
+
+Dentro de [slug].js creamos un nuevo componente de react llamado Post y crearemos dos funciones asincrónicos: **getStaticProps** and **getStaticPaths**
+
 ```
 /pages/blog/[slug].js
 
@@ -95,17 +103,16 @@ export const getStaticProps = async () => {
 }
 
 ```
-So why did we created these two functions? These two functions together will allow us to generate a page for each of our markdown files.
 
-Let's begin with `getStaticPaths`
+Entonces porque creamos estas dos funciones? Estas dos funciones juntas nos ayudaran a crear una pagina por cada articulo markdown dentro de posts.
 
-[getStaticPaths](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation) is used to pre-render specific paths. It returns an object that cointains two required properties: paths and fallback.
+Empezemos con [getStaticPaths](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation), es usado para pre-renderizar rutas. Esta funcion nos retorna un objecto que contiene dos propiedades: paths y fallback.
 
-1. Paths is an array of objects that contains all generated url paths for every post. Each object should have a params object that contains the name of the dynamic file, in this case slug, with its path name.
+1. Paths o routas es un array de objectos que contiene todas las rutas autogeneradas por cada uno de nuestros articulos. Cada objecto tiene que tener la propiedad params y dentro el nombre de la variable, en este caso slug, con el respectivo nombre de la ruta.
 
-2. Fallback is a boolean. If true Next.js will create a fallback page that the user will be redirected in case it doesn't find the requested path. If false it will return a 404. 
+2. Fallback es un boleano. Si es verdadero Next.js creara una pagina fallback al que el usuario sera redireccionado en caso de que no encuentre la ruta seleccionada. Si es falso redireccionara a un 404 .
 
-For a static blog, we will set fallback to **false**, so in case the user enters a path that was not generated at build time I will return a 404 page. Here is an example of how the return should look like:
+Para un blog de archivos estaticos, dejaremos el fallback en falso. Asi en caso de que el usuario entre en una ruta que no fue generada al momento de la construccion de la pagina, sera redireccionado a una pagina 404. A continuacion un ejemplo de como luce el retorno de getStaticPaths.
 
 ```
 return {
@@ -116,10 +123,12 @@ return {
   fallback: false
 }
 ```
-This is how our final code for getStaticPaths looks like let's dive into each line to see what happening:
+
+Asi es como nuestro codigo final quedara para getStaticPaths. Echemos un vistaso a ver que esta sucediendo linea por linea.
+
 ```
 export const getStaticPaths = async () => {
-  const files = fs.readdirSync('posts')  
+  const files = fs.readdirSync('posts')
   const paths = files.map(filename => ({
     params: { slug: filename.replace('.md', '') },
   }))
@@ -129,26 +138,34 @@ export const getStaticPaths = async () => {
   }
 }
 ```
-1. readdirSync will read the folder posts and return an array with the name of the files that are inside.
+
+1. readdirSync leera el folder posts y regresara un arreglo con todos los nombres de los archivos que estan adentro.
+
 ```
 const files = fs.readdirSync('posts')
 ```
-2. map will interate every element in files; remove the '.md' and return paths as an object.
+
+2. Map va a 'mappear' todos los elementos en files y borrara la extension '.md' de los archivos. Tambien le dara forma a nuestro returno como objecto y la propieda slug.
+
 ```
 const paths = files.map(filename => ({
     params: { slug: filename.replace('.md', '') },
   }))
 ```
-[getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) is used to pre-render the page content. It returns a props object which contains any information that we would like to pass to a component. 
 
-When used with getStaticPaths (like in this example) it requires an object as a parameter. Here is an example how the object looks like.
+[getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) es usado para pre-renderizar el contenido de la pagina. getStaticProps retorna un objecto props que contendra toda la informacion de la pagina que queremos pasar a nuestro componente.
+
+Cuando es usado con getStaticPaths, como es el caso, requiere de un objecto (context) como parametro. Aqui un ejemplo.
+
 ```
 export const getStaticProps = async (context) = {
   console.log(context)
   // context = { params: { slug } }
 }
 ```
-This is how our final code for getStaticProps looks like let's dive into each line to see what happening:
+
+Asi es como luce nuestro codigo fina para getStaticProps, echemos un vistaso a cada linea de codigo para ver que esta pasando.
+
 ```
 export const getStaticProps = async ({ params: { slug } }) => {
   const markdownWithMetadata = fs.readFileSync(
@@ -165,29 +182,41 @@ export const getStaticProps = async ({ params: { slug } }) => {
   }
 }
 ```
-1. Destructure the parameter in one line to get the slug.
+
+1. Destructurizamos el parametro en una linea para obtener la variable slug.1. Destructure the parameter in one line to get the slug.
+
 ```
 getStaticProps({ params: { slug } })
 ```
-2. Use path.join to get the file path for the slug
+
+2. Usamos path.join para obtener el routa del archivo para agregarle el nombre de la variable.
+
 ```
 path.join('posts', slug + '.md')
 ```
-3. readFileSync reads a file and converts it to a string
+
+3. readFileSync leera el archivo y lo convertira en un string.
+
 ```
 const markdownWithMetadata = fs.readFileSync(
   path.join('posts', slug + '.md'),
   'utf8')
 ```
-4. Use gray-matter to parse the metadata and the content for a markdown
+
+4. Usamos gray-matter para analizar los metadatos y el contenido del articulo
+
 ```
 const parsedMarkdown = matter(markdownWithMetadata)
 ```
-5. Convert the parsed markdown content to html
+
+5. Luego convertiremos el markdown analizado en elementos html.
+
 ```
 const htmlContent = await markdownToHtml(parsedMarkedown.content)
 ```
-To make the code easier to follow I moved my markdownToHtml function into another js file but here is how it works behind the scenes.
+
+Para hacer el codigo mas secillo de seguir he movido la funcion dentro de otro archivo pero aqui como todo funciona por detras.
+
 ```
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -201,7 +230,9 @@ const markdownToHtml = async markdown => {
   return processedContent.toString()
 }
 ```
-Now that getStaticProps returns the props that we need we can populate our Post component.
+
+Ahora que getStaticProps retorna las propiedades que necesitamos podemos popular nuestro componente Post.
+
 ```
 import Head from 'next/head'
 
@@ -217,7 +248,8 @@ export default function Post({ contents, data }) {
 }
 ```
 
-Congratulations, you have created your two first posts in your Next.js blog. Your [slug].js should look like this:
+Felicitaciones, acabas de crear tus primeros dos articulos en tu nuevo Next.js blog. El archivo [slug].js deberia verse asi.
+
 ```
 import fs from 'fs'
 import Head from 'next/head'
@@ -263,12 +295,14 @@ export const getStaticProps = async ({ params: { slug } }) => {
   }
 }
 ```
-All thats left to do is to run start you development server.
+
+Todo lo que queda por hacer es encender el servidor de desarrollo.
+
 ```
 cd [name of your app]
 yarn dev
 # or
 npm run dev
 ```
-Assuming that your server is running in port 3000, you can visit your [first-post](http://localhost:3000/blog/first-post) and [second-post](http://localhost:3000/blog/second-post)
 
+Asumiendo que tu servidor de desarollo esta en el puerto 3000, puedes visitar tu [primer](http://localhost:3000/blog/first-post) y [segundo](http://localhost:3000/blog/second-post) articulo.
