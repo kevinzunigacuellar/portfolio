@@ -5,7 +5,7 @@ import {
   readMarkdown,
   parseMarkdown,
 } from 'lib/serverSideScripts'
-import Link from 'next/link'
+import ListOfPosts from 'components/ListOfPosts'
 import { homeData } from 'data/data'
 export default function Home({ blogPostsData, homeDataLocale }) {
   return (
@@ -35,23 +35,7 @@ export default function Home({ blogPostsData, homeDataLocale }) {
         <h2 className='text-2xl py-5 text-gray-900 font-bold dark:text-gray-200'>
           {homeDataLocale.postsTitle}
         </h2>
-        {blogPostsData.map(({ title, description, url, date }) => {
-          return (
-            <article key={url}>
-              <Link href={`/blog/${url}`}>
-                <a>
-                  <h2 className='text-xl py-2 text-gray-900 font-semibold dark:text-gray-200'>
-                    {title}
-                  </h2>
-                  <p className='text-gray-500 dark:text-gray-400'>{date}</p>
-                  <p className='text-gray-500 dark:text-gray-400'>
-                    {description}
-                  </p>
-                </a>
-              </Link>
-            </article>
-          )
-        })}
+        <ListOfPosts blogPostsData={blogPostsData} />
       </div>
     </>
   )
