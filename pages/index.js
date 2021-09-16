@@ -35,18 +35,20 @@ export default function Home({ blogPostsData, homeDataLocale }) {
         <h2 className='text-2xl py-5 text-gray-900 font-bold dark:text-gray-200'>
           {homeDataLocale.postsTitle}
         </h2>
-        {blogPostsData.map(({ id, title, description, url, date }) => {
+        {blogPostsData.map(({ title, description, url, date }) => {
           return (
-            <article key={id}>
+            <article key={url}>
               <Link href={`/blog/${url}`}>
-                <a className='text-xl py-4 text-gray-900 font-semibold hover:underline dark:text-gray-200'>
-                  {title}
+                <a>
+                  <h2 className='text-xl py-2 text-gray-900 font-semibold dark:text-gray-200'>
+                    {title}
+                  </h2>
+                  <p className='text-gray-500 dark:text-gray-400'>{date}</p>
+                  <p className='mt-1 text-gray-500 dark:text-gray-400'>
+                    {description}
+                  </p>
                 </a>
               </Link>
-              <p className='text-gray-500 dark:text-gray-400'>{date}</p>
-              <p className='mt-2 text-gray-500 dark:text-gray-400'>
-                {description}
-              </p>
             </article>
           )
         })}
@@ -63,7 +65,6 @@ export async function getStaticProps({ locale }) {
     const parsedMarkedown = parseMarkdown(fileData)
     blogPostsData.push(parsedMarkedown.data)
   }
-  console.log(blogPostsData)
   const homeDataLocale = homeData[locale]
   return {
     props: { blogPostsData, homeDataLocale },
