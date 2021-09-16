@@ -2,44 +2,14 @@ import { useState } from 'react'
 import Link from 'next/link'
 import LanguageSelect from 'components/LanguageSelect'
 import { useRouter } from 'next/router'
-
-const navigation = [
-  {
-    name: { en: 'Home', es: 'Inicio' },
-    href: '/',
-    style:
-      'antialiased block px-3 py-1 text-white hover:bg-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700',
-  },
-  {
-    name: { en: 'About', es: 'Acerca' },
-    href: '/about',
-    style:
-      'antialiased mt-1 block px-3 py-1 text-white hover:bg-gray-700 rounded sm:mt-0 sm:ml-4 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700',
-  },
-  {
-    name: { en: 'Blog', es: 'Blog' },
-    href: '/blog',
-    style:
-      'antialiased mt-1 block px-3 py-1 text-white hover:bg-gray-700 rounded sm:mt-0 sm:ml-4 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700',
-  },
-  {
-    name: { en: 'Books', es: 'Libros' },
-    href: '/bookshelf',
-    style:
-      'antialiased mt-1 block px-3 py-1 text-white hover:bg-gray-700 rounded sm:mt-0 sm:ml-4 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700',
-  },
-]
-
+import { navigation } from 'data/navigationLinks'
 export default function Navbar({ setDark, dark }) {
   const router = useRouter()
   const { locale } = router
-
   const [open, setOpen] = useState(false)
-
   const handleMenuExpand = () => {
     setOpen(prevState => !prevState)
   }
-
   const handleToggleDarkTheme = () => {
     setDark(prevState => !prevState)
   }
