@@ -1,9 +1,8 @@
 ---
-id: md-blog-con-nextjs
 url: make-a-markdown-blog-with-nextjs
 title: Crea un blog con archivos markdown y Next.js
 date: Agosto 01, 2021
-description: " Aprenda a crear un blog estatico con Next.js y markdown"
+description: "Aprenda a crear un blog estatico con Next.js y markdown"
 ---
 ## Como hacer un blog con Next.js y markdown
 ---
