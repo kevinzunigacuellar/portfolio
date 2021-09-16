@@ -1,5 +1,5 @@
 import Title from 'components/Title'
-import { bookShelfData } from 'data/data'
+import { bookShelfData } from 'data/pageData'
 export default function BookShelf({ bookShelfDataLocale }) {
   return (
     <div>

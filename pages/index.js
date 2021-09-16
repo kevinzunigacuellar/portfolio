@@ -6,7 +6,7 @@ import {
   parseMarkdown,
 } from 'lib/serverSideScripts'
 import ListOfPosts from 'components/ListOfPosts'
-import { homeData } from 'data/data'
+import { homeData } from 'data/pageData'
 import Title from 'components/Title'
 export default function Home({ blogPostsData, homeDataLocale }) {
   return (
