@@ -1,5 +1,6 @@
 import ListOfPosts from 'components/ListOfPosts'
 import Title from 'components/Title'
+import Head from 'next/head'
 import {
   readPostsDirectory,
   readMarkdown,
@@ -8,10 +9,13 @@ import {
 
 export default function Blog({ blogPostsData }) {
   return (
-    <div>
+    <>
+      <Head>
+        <title>Blog</title>
+      </Head>
       <Title>Blog</Title>
       <ListOfPosts blogPostsData={blogPostsData} />
-    </div>
+    </>
   )
 }
 

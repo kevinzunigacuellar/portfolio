@@ -8,6 +8,10 @@ module.exports = {
       colors: {
         teal: colors.teal,
       },
+      padding: {
+        '1/2': '50%',
+        '3/2': '120%',
+      },
     },
   },
   variants: {

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Head from 'next/head'
 import profilePic from 'public/img/me.jpg'
 import {
   readPostsDirectory,
@@ -11,6 +12,9 @@ import Title from 'components/Title'
 export default function Home({ blogPostsData, homeDataLocale }) {
   return (
     <>
+      <Head>
+        <title>{homeDataLocale.pageTitle}</title>
+      </Head>
       <div className='flex flex-col items-center'>
         <div className='flex flex-col sm:flex-row items-center mt-8'>
           <Image
@@ -24,7 +28,7 @@ export default function Home({ blogPostsData, homeDataLocale }) {
           />
           <div className='p-4 sm:p-10'>
             <Title>{homeDataLocale.welcome}</Title>
-            <p className='max-w-lg text-gray-500 dark:text-gray-400'>
+            <p className='max-w-lg leading-relaxed text-gray-500 dark:text-gray-400'>
               {homeDataLocale.description}
             </p>
           </div>

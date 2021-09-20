@@ -11,16 +11,17 @@ export default function Navbar({ setDark, dark }) {
     setOpen(prevState => !prevState)
   }
   const handleToggleDarkTheme = () => {
+    document.documentElement.classList.toggle('dark')
     setDark(prevState => !prevState)
   }
   return (
-    <header className='bg-gray-600 sticky top-0 z-10 dark:bg-gray-900'>
+    <header className='bg-gray-600 sticky top-0 z-10 dark:bg-gray-900 transition-colors'>
       <div className='max-w-screen-2xl mx-auto sm:flex sm:items-center sm:justify-between sm:px-4 sm:py-2'>
         <div className='flex items-center justify-between px-4 py-2 sm:p-0 sm:order-last'>
           <div className='sm:hidden'>
             <button
               type='button'
-              className='p-1 text-gray-100 focus:text-white focus:outline-none rounded focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700'
+              className='p-1 text-gray-100 focus:text-white focus:outline-none rounded focus:ring-2 focus:ring-white focus:ring-opacity-50 focus:bg-gray-700 dark:focus:bg-gray-800'
               onClick={handleMenuExpand}>
               <svg
                 className='h-6 w-6 fill-current'
@@ -46,7 +47,7 @@ export default function Navbar({ setDark, dark }) {
           </div>
           <div className='flex items-center'>
             <button
-              className='p-1 mr-3 text-gray-100 focus:text-white hover:bg-gray-700 focus:outline-none rounded focus:ring-2 focus:ring-gray-200 focus:ring-opacity-50 focus:bg-gray-700'
+              className='p-1 mr-3 text-gray-100 focus:text-white hover:bg-gray-700 focus:outline-none rounded focus:ring-2 focus:ring-gray-200 focus:ring-opacity-90 focus:bg-gray-700'
               onClick={handleToggleDarkTheme}>
               <svg
                 className='h-6 w-6'
