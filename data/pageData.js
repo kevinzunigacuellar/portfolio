@@ -90,7 +90,7 @@ export const bookShelfData = {
         author: 'Miguel Angel Durán',
         year: '2021',
         comment:
-          'Compre este libro en la preventa para apoyar a uno de mis streamers favoritos. La verdad que lo recomiendo mucho, está muy fácil de seguir y entender sin importar el nivel de git que conozcas.',
+          'Compre este libro en la preventa para apoyar a uno de mis streamers de twitch favoritos. Recomiendo mucho este libro sin importar el nivel que tengas el git.',
       },
     ],
   },
