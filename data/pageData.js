@@ -95,3 +95,12 @@ export const bookShelfData = {
     ],
   },
 }
+
+export const aboutPageData = {
+  en: {
+    pageTitle: 'About',
+  },
+  es: {
+    pageTitle: 'Acerca',
+  },
+}
