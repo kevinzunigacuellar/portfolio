@@ -22,7 +22,6 @@ export const bookShelfData = {
     pageTitle: 'My bookshelf',
     pageDescription:
       'I love reading so I thought of making a bookshelf were I share all the books I finished cover to cover.',
-    imageExample: profilePic,
     books: [
       {
         img: '/img/eloquent_javascript.jpg',
@@ -38,6 +37,14 @@ export const bookShelfData = {
     pageTitle: 'Mi estante de libros',
     pageDescription:
       'Me gusta leer, por eso pense en hacer un estante de libros donde compartire todos los libros que he terminado de tapa a tapa.',
-    imageExample: profilePic,
+    books: [
+      {
+        img: '/img/eloquent_javascript.jpg',
+        title: 'Eloquent JavaScript',
+        author: 'Marijn Haverbeke',
+        year: '2018',
+        comment: 'Uno de los mejores libros de JavaScript que he leido.',
+      },
+    ],
   },
 }
