@@ -1,5 +1,3 @@
-import profilePic from 'public/img/me.jpg'
-import eloquentJavascript from 'public/img/eloquent_javascript.jpg'
 export const homeData = {
   en: {
     pageTitle: 'Home',

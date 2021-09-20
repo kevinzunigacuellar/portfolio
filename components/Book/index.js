@@ -1,5 +1,5 @@
 import Image from 'next/image'
-export default function Book({ key, img, title, author, year, comment }) {
+export default function Book({ img, title, author, year, comment }) {
   return (
     <div className='mx-auto max-w-md md:max-w-2xl bg-white rounded-lg border overflow-hidden'>
       <div className='md:flex'>
