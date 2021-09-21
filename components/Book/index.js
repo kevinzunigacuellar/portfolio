@@ -1,7 +1,7 @@
 import Image from 'next/image'
 export default function Book({ img, title, author, year, comment }) {
   return (
-    <div className='max-w-md md:max-w-2xl bg-white rounded-lg border overflow-hidden dark:bg-gray-900 dark:border-gray-500 transition-colors'>
+    <div className='max-w-md md:max-w-2xl bg-white rounded-lg border dark:border-opacity-0 overflow-hidden dark:bg-gray-900 dark:border-gray-500 transition-colors'>
       <div className='md:flex'>
         <div className='max-w-md'>
           <div className='relative pb-3/2 md:w-60'>
