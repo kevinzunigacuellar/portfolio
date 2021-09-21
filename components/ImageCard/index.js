@@ -6,7 +6,7 @@ export default function ImageCard({ title, url, img }) {
       <div className='relative pb-2/3'>
         <div className='group absolute w-full h-full z-10 bg-gray-900 bg-opacity-0 hover:bg-opacity-50 transition-all'>
           <div className='absolute bottom-0 py-6 sm:py-8 text-center w-full bg-gray-900 bg-opacity-0 group-hover:bg-opacity-90'>
-            <h4 className='sm:text-xl text-gray-100 text-opacity-0 group-hover:text-opacity-100 font-semibold tracking-wide'>
+            <h4 className='sm:text-xl text-gray-100 text-opacity-0 group-hover:text-opacity-100 font-semibold'>
               {title}
             </h4>
             <a
