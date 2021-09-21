@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import LanguageSelect from 'components/LanguageSelect'
 import { useRouter } from 'next/router'
-const navigation = [
+export const navigation = [
   {
     name: { en: 'Home', es: 'Inicio' },
     href: '/',
