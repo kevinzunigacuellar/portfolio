@@ -99,8 +99,10 @@ export const bookShelfData = {
 export const aboutPageData = {
   en: {
     pageTitle: 'About',
+    pageProjects: 'Projects',
   },
   es: {
     pageTitle: 'Acerca',
+    pageProjects: 'Proyectos',
   },
 }
