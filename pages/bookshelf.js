@@ -15,7 +15,7 @@ export default function BookShelf({
       <p className='max-w-lg leading-relaxed text-gray-500 dark:text-gray-400'>
         {pageDescription}
       </p>
-      <div className='grid grid-cols-1 gap-6 justify-items-center xl:grid-cols-2 my-6'>
+      <div className='grid grid-cols-1 gap-6 justify-items-center md:justify-items-start xl:grid-cols-2 my-6'>
         {books.map(({ img, title, author, year, comment }) => (
           <Book
             key={title}
