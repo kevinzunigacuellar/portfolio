@@ -1,11 +1,12 @@
 ---
 title: Make a markdown blog with Next.js
 url: make-a-markdown-blog-with-nextjs
-description: "Learn how to make a static blog with Next.js and markdown"
+description: 'Learn how to make a static blog with Next.js and markdown'
 date: August 01, 2021
 ---
-## How to make a blog with Next.js and Markdown 
----
+
+# How to make a blog with Next.js and Markdown
+
 ### When to use Markdown?
 
 Markdown is a great tool to create websites with dense content such as: blogs or documentation. It allows the author to spend less time coding HTML elements and CSS styles and more time to focus on the content.
@@ -37,7 +38,7 @@ npx create-next-app
 yarn create next-app
 ```
 
-Create a top-level directory called **posts**. Here we will store our markdown data. Let's begin by creating two posts. 
+Create a top-level directory called **posts**. Here we will store our markdown data. Let's begin by creating two posts.
 
 ```
 /posts/first-post.md
@@ -49,6 +50,7 @@ description: My first post
 
 This is my first post.
 ```
+
 ```
 /posts/second-post.md
 ---
@@ -59,6 +61,7 @@ description: My second post
 
 This is my second post.
 ```
+
 Let's go back to the root folder and look a for folder named **pages**. Inside pages create a new folder called blog. Inside blog create a new file named [slug].js
 
 For Next.js a file name with square brackets indicates that its a dynamic path. The name between the brackets will be used as a variable to generate new paths.
@@ -66,6 +69,7 @@ For Next.js a file name with square brackets indicates that its a dynamic path. 
 We create a blog folder so the route of our new blog will be `example.com/blog/[name-of-the-post]`
 
 In [slug].js create a new react component named **Post** and create two asynchronous functions: **getStaticProps** and **getStaticPaths**.
+
 ```
 /pages/blog/[slug].js
 
@@ -95,6 +99,7 @@ export const getStaticProps = async () => {
 }
 
 ```
+
 So why did we created these two functions? These two functions together will allow us to generate a page for each of our markdown files.
 
 Let's begin with `getStaticPaths`
@@ -103,7 +108,7 @@ Let's begin with `getStaticPaths`
 
 1. Paths is an array of objects that contains all generated url paths for every post. Each object should have a params object that contains the name of the dynamic file, in this case slug, with its path name.
 
-2. Fallback is a boolean. If true Next.js will create a fallback page that the user will be redirected in case it doesn't find the requested path. If false it will return a 404. 
+2. Fallback is a boolean. If true Next.js will create a fallback page that the user will be redirected in case it doesn't find the requested path. If false it will return a 404.
 
 For a static blog, we will set fallback to **false**, so in case the user enters a path that was not generated at build time I will return a 404 page. Here is an example of how the return should look like:
 
@@ -116,10 +121,12 @@ return {
   fallback: false
 }
 ```
+
 This is how our final code for getStaticPaths looks like let's dive into each line to see what happening:
+
 ```
 export const getStaticPaths = async () => {
-  const files = fs.readdirSync('posts')  
+  const files = fs.readdirSync('posts')
   const paths = files.map(filename => ({
     params: { slug: filename.replace('.md', '') },
   }))
@@ -129,26 +136,34 @@ export const getStaticPaths = async () => {
   }
 }
 ```
+
 1. readdirSync will read the folder posts and return an array with the name of the files that are inside.
+
 ```
 const files = fs.readdirSync('posts')
 ```
+
 2. map will interate every element in files; remove the '.md' and return paths as an object.
+
 ```
 const paths = files.map(filename => ({
     params: { slug: filename.replace('.md', '') },
   }))
 ```
-[getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) is used to pre-render the page content. It returns a props object which contains any information that we would like to pass to a component. 
+
+[getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) is used to pre-render the page content. It returns a props object which contains any information that we would like to pass to a component.
 
 When used with getStaticPaths (like in this example) it requires an object as a parameter. Here is an example how the object looks like.
+
 ```
 export const getStaticProps = async (context) = {
   console.log(context)
   // context = { params: { slug } }
 }
 ```
+
 This is how our final code for getStaticProps looks like let's dive into each line to see what happening:
+
 ```
 export const getStaticProps = async ({ params: { slug } }) => {
   const markdownWithMetadata = fs.readFileSync(
@@ -165,29 +180,41 @@ export const getStaticProps = async ({ params: { slug } }) => {
   }
 }
 ```
+
 1. Destructure the parameter in one line to get the slug.
+
 ```
 getStaticProps({ params: { slug } })
 ```
+
 2. Use path.join to get the file path for the slug
+
 ```
 path.join('posts', slug + '.md')
 ```
+
 3. readFileSync reads a file and converts it to a string
+
 ```
 const markdownWithMetadata = fs.readFileSync(
   path.join('posts', slug + '.md'),
   'utf8')
 ```
+
 4. Use gray-matter to parse the metadata and the content for a markdown
+
 ```
 const parsedMarkdown = matter(markdownWithMetadata)
 ```
+
 5. Convert the parsed markdown content to html
+
 ```
 const htmlContent = await markdownToHtml(parsedMarkedown.content)
 ```
+
 To make the code easier to follow I moved my markdownToHtml function into another js file but here is how it works behind the scenes.
+
 ```
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -201,7 +228,9 @@ const markdownToHtml = async markdown => {
   return processedContent.toString()
 }
 ```
+
 Now that getStaticProps returns the props that we need we can populate our Post component.
+
 ```
 import Head from 'next/head'
 
@@ -218,6 +247,7 @@ export default function Post({ contents, data }) {
 ```
 
 Congratulations, you have created your two first posts in your Next.js blog. Your [slug].js should look like this:
+
 ```
 import fs from 'fs'
 import Head from 'next/head'
@@ -263,12 +293,14 @@ export const getStaticProps = async ({ params: { slug } }) => {
   }
 }
 ```
+
 All thats left to do is to run start you development server.
+
 ```
 cd [name of your app]
 yarn dev
 # or
 npm run dev
 ```
-Assuming that your server is running in port 3000, you can visit your [first-post](http://localhost:3000/blog/first-post) and [second-post](http://localhost:3000/blog/second-post)
 
+Assuming that your server is running in port 3000, you can visit your [first-post](http://localhost:3000/blog/first-post) and [second-post](http://localhost:3000/blog/second-post)

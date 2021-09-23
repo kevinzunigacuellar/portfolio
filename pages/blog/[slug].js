@@ -12,7 +12,7 @@ export default function Post({ contents, data }) {
         <title>{data.title}</title>
       </Head>
       <article
-        className='mx-auto prose prose-blue md:prose-lg lg:prose-xl'
+        className='mx-auto md:m-0 py-6 prose prose-blue md:prose-lg lg:prose-xl dark:prose-dark'
         dangerouslySetInnerHTML={{ __html: contents }}></article>
     </div>
   )

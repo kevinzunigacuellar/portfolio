@@ -5,9 +5,7 @@ date: Agosto 01, 2021
 description: 'Aprenda a crear un blog estatico con Next.js y markdown'
 ---
 
-## Como hacer un blog con Next.js y markdown
-
----
+# Como hacer un blog con Next.js y markdown
 
 ### ¿Cuando usar markdown?
 
