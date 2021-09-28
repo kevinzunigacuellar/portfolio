@@ -4,6 +4,7 @@ import ImageCard from 'components/ImageCard'
 import { aboutPageData } from 'data/pageData'
 import gifindImage from 'public/img/gifind.png'
 import hotelManantialImage from 'public/img/hotelmanantialchurin.png'
+
 export default function About({
   aboutDataLocale: { pageTitle, pageProjects },
 }) {
