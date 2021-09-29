@@ -15,23 +15,24 @@ export default function Home({ blogPostsData, homeDataLocale }) {
       <Head>
         <title>{homeDataLocale.pageTitle}</title>
       </Head>
-      <div className='flex flex-col items-center'>
-        <div className='flex flex-col sm:flex-row items-center mt-8'>
-          <Image
-            src={profilePic}
-            alt='Picture of the author'
-            width={397}
-            height={483}
-            className='rounded-lg'
-            placeholder='blur'
-            quality={100}
-          />
-          <div className='p-4 sm:p-10'>
-            <Title>{homeDataLocale.welcome}</Title>
-            <p className='max-w-lg leading-relaxed text-gray-500 dark:text-gray-400'>
-              {homeDataLocale.description}
-            </p>
+
+      <div className='mt-8 sm:flex sm:items-center'>
+        <div className='max-w-sm mx-auto sm:m-0'>
+          <div className='relative pb-3/2 rounded-lg sm:w-60 md:w-72 lg:w-80 overflow-hidden'>
+            <Image
+              className='absolute w-full h-full object-cover'
+              src={profilePic}
+              alt='Picture of the author'
+              placeholder='blur'
+              layout='fill'
+            />
           </div>
+        </div>
+        <div className='p-4 sm:p-10'>
+          <Title>{homeDataLocale.welcome}</Title>
+          <p className='max-w-lg leading-relaxed text-gray-500 dark:text-gray-400'>
+            {homeDataLocale.description}
+          </p>
         </div>
       </div>
       <div className='mt-10'>
