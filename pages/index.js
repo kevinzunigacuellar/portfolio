@@ -14,7 +14,7 @@ export default function Home({ blogPostsData, homeDataLocale }) {
     <>
       <Head>
         <title>{homeDataLocale.pageTitle}</title>
-        <meta name='description' content={homeDataLocale.welcome} />
+        <meta name='description' content={homeDataLocale.description} />
         <meta name='robots' content='index, follow' />
       </Head>
 

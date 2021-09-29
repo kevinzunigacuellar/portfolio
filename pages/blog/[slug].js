@@ -10,6 +10,7 @@ export default function Post({ contents, data }) {
     <div>
       <Head>
         <title>{data.title}</title>
+        <meta name='description' content={data.description} />
       </Head>
       <article
         className='mx-auto py-6 prose prose-blue md:prose-lg lg:prose-xl dark:prose-dark'

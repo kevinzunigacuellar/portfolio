@@ -10,6 +10,7 @@ export default function BookShelf({
     <>
       <Head>
         <title>{pageTitle}</title>
+        <meta name='description' content={pageDescription} />
       </Head>
       <Title>{pageTitle}</Title>
       <p className='max-w-lg leading-relaxed text-gray-500 dark:text-gray-400'>
