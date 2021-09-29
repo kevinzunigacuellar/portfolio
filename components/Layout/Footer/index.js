@@ -7,7 +7,7 @@ export default function Footer() {
   const router = useRouter()
   const { locale } = router
   return (
-    <footer className='bg-white py-4 flex-shrink-0 border-t border-gray-300 dark:bg-gray-900 dark:border-gray-500 transition-all'>
+    <footer className='bg-gray-50 py-4 flex-shrink-0 border-t border-gray-300 dark:bg-gray-900 dark:border-gray-500 transition-all'>
       <div className='flex flex-wrap justify-center p-2 space-x-3'>
         {navigation.map(({ name, href }) => (
           <Link href={href} key={name + href}>

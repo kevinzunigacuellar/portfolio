@@ -11,7 +11,7 @@ export const homeData = {
     welcome: 'Hola, soy Kevin Zuñiga',
     description:
       'Bienvenido a mi rebanada en la internet. Soy un estudiante de posgrado en ingeniería mecánica en la Universidad de Vermont. En mi tiempo libre me dedico a hacer paginas web y experimentar con nuevas tecnologías.',
-    postsTitle: 'Últimas articulos:',
+    postsTitle: 'Últimos articulos:',
   },
 }
 
@@ -66,7 +66,8 @@ export const bookShelfData = {
         title: 'Eloquent JavaScript',
         author: 'Marijn Haverbeke',
         year: '2018',
-        comment: 'Uno de los mejores libros de JavaScript que he leido.',
+        comment:
+          'Uno de los mejores libros de JavaScript que he leido. A pesar de haberlo terminado hace tiempo aún lo tengo conmigo como una referencia',
       },
       {
         img: '/img/sam_walton.jpg',
@@ -90,7 +91,7 @@ export const bookShelfData = {
         author: 'Miguel Angel Durán',
         year: '2021',
         comment:
-          'Compre este libro en la preventa para apoyar a uno de mis streamers de twitch favoritos. Recomiendo mucho este libro sin importar el nivel que tengas el git.',
+          'Compre este libro en la preventa para apoyar a uno de mis streamers de twitch favoritos. Recomiendo mucho este libro sin importar el nivel que tengas en git.',
       },
     ],
   },

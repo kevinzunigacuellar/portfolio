@@ -15,7 +15,7 @@ export default function About({
       </Head>
       <Title>{pageTitle}</Title>
       <Title>{pageProjects}</Title>
-      <div className='grid grid-cols-1 gap-4 xl:grid-cols-2'>
+      <div className='grid grid-cols-1 gap-6'>
         <ImageCard
           title='Gifind'
           url='https://gifind.vercel.app/'

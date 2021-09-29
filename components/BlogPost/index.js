@@ -1,6 +1,6 @@
 export default function BlogPost({ title, date, description }) {
   return (
-    <div className='shadow rounded py-4 px-6 border-l-4 border-indigo-400 hover:border-indigo-500 hover:shadow-md dark:bg-gray-900'>
+    <div className='max-w-4xl shadow rounded py-4 px-6 border-l-4 border-indigo-400 hover:border-indigo-500 dark:hover:border-indigo-600 hover:shadow-md dark:bg-gray-900 bg-white'>
       <h2 className='text-lg pb-2 text-gray-900 font-semibold dark:text-gray-200 transition-all'>
         {title}
       </h2>

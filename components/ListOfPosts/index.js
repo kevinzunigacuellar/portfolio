@@ -5,7 +5,7 @@ export default function ListOfPosts({ blogPostsData }) {
     <div>
       {blogPostsData.map(({ title, description, url, date }) => {
         return (
-          <article key={url} className='mb-4'>
+          <article key={url} className='mb-5'>
             <Link href={`/blog/${url}`}>
               <a>
                 <BlogPost title={title} date={date} description={description} />
