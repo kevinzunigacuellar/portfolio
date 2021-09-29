@@ -14,6 +14,8 @@ export default function Home({ blogPostsData, homeDataLocale }) {
     <>
       <Head>
         <title>{homeDataLocale.pageTitle}</title>
+        <meta name='description' content={homeDataLocale.welcome} />
+        <meta name='robots' content='index, follow' />
       </Head>
 
       <div className='mt-8 sm:flex sm:items-center'>
@@ -30,7 +32,7 @@ export default function Home({ blogPostsData, homeDataLocale }) {
         </div>
         <div className='p-4 sm:p-10'>
           <Title>{homeDataLocale.welcome}</Title>
-          <p className='max-w-lg leading-relaxed text-gray-500 dark:text-gray-400'>
+          <p className='max-w-lg leading-relaxed text-gray-600 dark:text-gray-400'>
             {homeDataLocale.description}
           </p>
         </div>

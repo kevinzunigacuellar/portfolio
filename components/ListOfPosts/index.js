@@ -7,7 +7,7 @@ export default function ListOfPosts({ blogPostsData }) {
         return (
           <article key={url} className='mb-5'>
             <Link href={`/blog/${url}`}>
-              <a>
+              <a aria-label={`${title}`}>
                 <BlogPost title={title} date={date} description={description} />
               </a>
             </Link>

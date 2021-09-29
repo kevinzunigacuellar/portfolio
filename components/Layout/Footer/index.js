@@ -21,12 +21,14 @@ export default function Footer() {
         <a
           href='https://github.com/kevinzunigacuellar'
           target='_blank'
+          aria-label='visit my Github'
           rel='noreferrer'>
           <Github />
         </a>
         <a
           href='https://www.linkedin.com/in/kevinzunigacuellar/'
           target='_blank'
+          aria-label='visit my LinkedIn'
           rel='noreferrer'>
           <LinkedIn />
         </a>

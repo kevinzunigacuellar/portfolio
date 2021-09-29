@@ -48,7 +48,8 @@ export default function Navbar({ setDark, dark }) {
             <button
               type='button'
               className='p-1 text-gray-100 focus:text-white focus:outline-none rounded focus:ring-2 focus:ring-white focus:ring-opacity-50 focus:bg-gray-700 dark:focus:bg-gray-800'
-              onClick={handleMenuExpand}>
+              onClick={handleMenuExpand}
+              aria-label='expand menu'>
               <svg
                 className='h-6 w-6 fill-current'
                 viewBox='0 0 24 24'
@@ -74,7 +75,8 @@ export default function Navbar({ setDark, dark }) {
           <div className='flex items-center'>
             <button
               className='p-1 mr-3 text-gray-100 focus:text-white hover:bg-gray-700 focus:outline-none rounded focus:ring-2 focus:ring-gray-200 focus:ring-opacity-90 focus:bg-gray-700'
-              onClick={handleToggleDarkTheme}>
+              onClick={handleToggleDarkTheme}
+              aria-label='toggle dark and light theme'>
               <svg
                 className='h-6 w-6'
                 fill='none'
