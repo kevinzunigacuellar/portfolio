@@ -8,7 +8,7 @@ export default function Book({ img, title, author, year, comment }) {
             <Image
               className='absolute w-full h-full object-cover'
               src={img}
-              alt='Picture of the book'
+              alt={title}
               layout='fill'
             />
           </div>
