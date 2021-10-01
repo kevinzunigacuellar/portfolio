@@ -1,7 +1,7 @@
 export default function Github() {
   return (
     <svg
-      className='w-6 h-6 fill-current text-gray-900 dark:text-gray-100'
+      className='w-6 h-6 fill-current text-gray-400 hover:text-gray-800 dark:text-gray-100'
       viewBox='0 0 256 249'
       preserveAspectRatio='xMinYMin meet'>
       <g>
