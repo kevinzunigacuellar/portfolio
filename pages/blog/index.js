@@ -11,7 +11,7 @@ export default function Blog({ blogPostsData }) {
   return (
     <>
       <Head>
-        <title>Kevin Zuniga Cuellar - Blog</title>
+        <title>Blog - Kevin Zuniga Cuellar</title>
       </Head>
       <Title>Blog</Title>
       <ListOfPosts blogPostsData={blogPostsData} />
