@@ -26,6 +26,7 @@ export default function CurrentlyPlaying({
         <a
           href={songUrl}
           target='_blank'
+          aria-label={`Spotify now playing : ${songName}`}
           rel='noopener noreferrer'
           className='flex bg-white rounded-md overflow-hidden min-w-full items-center shadow-sm hover:shadow dark:bg-gray-700 transition-all'>
           <div className='relative w-16 h-16 flex-shrink-0'>
