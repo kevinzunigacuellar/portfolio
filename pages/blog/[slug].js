@@ -1,35 +1,28 @@
 import Head from 'next/head'
-import matter from 'gray-matter'
 import {
+  getBlogPostData,
+  getUrlPaths,
   markdownToHtml,
-  readPostsDirectory,
-  readMarkdown,
-} from 'lib/serverSideScripts'
-export default function Post({ contents, data }) {
+} from 'lib/parseBlogPosts'
+export default function Post({
+  htmlContent,
+  metadata: { title, description },
+}) {
   return (
     <div>
       <Head>
-        <title>{data.title}</title>
-        <meta name='description' content={data.description} />
+        <title>{title}</title>
+        <meta name='description' content={description} />
       </Head>
       <article
         className='mx-auto py-6 prose prose-blue md:prose-lg lg:prose-xl dark:prose-dark'
-        dangerouslySetInnerHTML={{ __html: contents }}></article>
+        dangerouslySetInnerHTML={{ __html: htmlContent }}></article>
     </div>
   )
 }
 
 export const getStaticPaths = async ({ locales }) => {
-  const paths = []
-  for (const locale of locales) {
-    const files = readPostsDirectory(locale)
-    for (const file of files) {
-      paths.push({
-        params: { slug: file.replace('.md', '') },
-        locale: locale,
-      })
-    }
-  }
+  const paths = getUrlPaths(locales)
   return {
     paths,
     fallback: false,
@@ -37,13 +30,12 @@ export const getStaticPaths = async ({ locales }) => {
 }
 
 export const getStaticProps = async ({ params: { slug }, locale }) => {
-  const markdownWithMetadata = readMarkdown(locale, slug + '.md')
-  const parsedMarkedown = matter(markdownWithMetadata)
-  const htmlContent = await markdownToHtml(parsedMarkedown.content)
+  const { content, metadata } = getBlogPostData(locale, slug)
+  const htmlContent = await markdownToHtml(content)
   return {
     props: {
-      contents: htmlContent,
-      data: parsedMarkedown.data,
+      htmlContent,
+      metadata,
     },
   }
 }

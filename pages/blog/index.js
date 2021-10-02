@@ -5,7 +5,7 @@ import {
   readPostsDirectory,
   readMarkdown,
   parseMarkdown,
-} from 'lib/serverSideScripts'
+} from 'lib/parseBlogPosts'
 
 export default function Blog({ blogPostsData }) {
   return (
@@ -22,11 +22,11 @@ export default function Blog({ blogPostsData }) {
 export async function getStaticProps({ locale }) {
   const files = readPostsDirectory(locale)
   const blogPostsData = []
-  for (const filename of files) {
+  files.forEach(filename => {
     const fileData = readMarkdown(locale, filename)
-    const parsedMarkedown = parseMarkdown(fileData)
-    blogPostsData.push(parsedMarkedown.data)
-  }
+    const { data } = parseMarkdown(fileData)
+    blogPostsData.push(data)
+  })
   return {
     props: { blogPostsData },
   }
