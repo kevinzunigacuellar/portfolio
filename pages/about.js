@@ -13,7 +13,6 @@ export default function About({
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <Title>{pageTitle}</Title>
       <Title>{pageProjects}</Title>
       <div className='grid grid-cols-1 gap-6'>
         <ImageCard

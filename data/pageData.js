@@ -19,7 +19,8 @@ export const homeData = {
 
 export const bookShelfData = {
   en: {
-    pageTitle: 'My bookshelf',
+    pageTitle: 'Kevin Zuniga Cuellar - My bookshelf',
+    title: 'My bookshelf',
     pageDescription:
       'I love reading so I thought of making a bookshelf were I share all the books I finished cover to cover.',
     books: [
@@ -59,7 +60,8 @@ export const bookShelfData = {
   },
 
   es: {
-    pageTitle: 'Mi estante de libros',
+    pageTitle: 'Kevin Zuniga Cuellar - Mi estante de libros',
+    title: 'Mi estante de libros',
     pageDescription:
       'Me gusta leer, por eso pense en hacer un estante de libros donde compartire todos los libros que he terminado de tapa a tapa.',
     books: [
@@ -101,11 +103,11 @@ export const bookShelfData = {
 
 export const aboutPageData = {
   en: {
-    pageTitle: 'About',
+    pageTitle: 'Kevin Zuniga Cuellar - About',
     pageProjects: 'Projects',
   },
   es: {
-    pageTitle: 'Acerca',
+    pageTitle: 'Kevin Zuniga Cuellar - Acerca',
     pageProjects: 'Proyectos',
   },
 }

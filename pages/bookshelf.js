@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Book from 'components/Book'
 
 export default function BookShelf({
-  bookShelfDataLocale: { pageDescription, pageTitle, books },
+  bookShelfDataLocale: { pageDescription, pageTitle, title, books },
 }) {
   return (
     <>
@@ -12,7 +12,7 @@ export default function BookShelf({
         <title>{pageTitle}</title>
         <meta name='description' content={pageDescription} />
       </Head>
-      <Title>{pageTitle}</Title>
+      <Title>{title}</Title>
       <p className='max-w-lg leading-relaxed text-gray-500 dark:text-gray-400'>
         {pageDescription}
       </p>
