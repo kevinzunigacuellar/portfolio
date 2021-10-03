@@ -10,7 +10,7 @@ export default function CurrentlyPlaying({
   const { locale } = router
   return (
     <div>
-      <div className='flex items-center pb-2.5'>
+      <div className='flex items-center pb-2'>
         <svg
           className='fill-current text-green-400 w-6 h-auto'
           viewBox='0 0 2931 2931'
