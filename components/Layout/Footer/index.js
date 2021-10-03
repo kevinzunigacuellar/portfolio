@@ -1,5 +1,6 @@
 import Github from 'components/icons/Github'
 import LinkedIn from 'components/icons/LinkedIn'
+import Twitter from 'components/icons/Twitter'
 import SpotifyPlayer from 'components/SpotifyPlayer'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -28,6 +29,13 @@ export default function Footer() {
                   aria-label='Visit my LinkedIn'
                   rel='noreferrer'>
                   <LinkedIn />
+                </a>
+                <a
+                  href='https://twitter.com/kevinzunigacuel'
+                  target='_blank'
+                  aria-label='Visit my Twitter'
+                  rel='noreferrer'>
+                  <Twitter />
                 </a>
               </div>
             </div>
