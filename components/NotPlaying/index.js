@@ -4,7 +4,7 @@ export default function NotPlaying() {
   const { locale } = router
   return (
     <div
-      className='grid justify-items-center sm:w-96 w-72 bg-white rounded-md py-3 sm:mt-8'
+      className='grid justify-items-center sm:w-96 w-72 bg-white rounded-md py-3 mt-8'
       aria-label={`Spotify ${
         locale == 'en' ? 'Not playing' : 'No reproduciendo'
       }`}>
