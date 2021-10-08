@@ -2,7 +2,7 @@ export const homeData = {
   en: {
     pageTitle:
       'Kevin Zuniga Cuellar - Mechanical Engineer and self-taught software developer',
-    welcome: 'Hello, I am Kevin Zuniga',
+      role:'Graduate Research Assistant at University of Vermont',
     description:
       'Welcome to my slice of the internet. I am a graduate student in mechanical engineering at University of Vermont. In my free time I enjoy making websites and experimenting with web app technologies.',
     postsTitle: 'Latest posts:',
@@ -10,7 +10,7 @@ export const homeData = {
   es: {
     pageTitle:
       'Kevin Zuniga Cuellar - Ingeniero mecánico y desarrollador web autodidacta',
-    welcome: 'Hola, soy Kevin Zuñiga',
+      role:'Assistente de investigación de posgrado en la Universidad de Vermont',
     description:
       'Bienvenido a mi rebanada en la internet. Soy un estudiante de posgrado en ingeniería mecánica en la Universidad de Vermont. En mi tiempo libre me dedico a hacer paginas web y experimentar con nuevas tecnologías.',
     postsTitle: 'Últimos articulos:',

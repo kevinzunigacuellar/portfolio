@@ -7,30 +7,30 @@ export const navigation = [
     name: { en: 'Home', es: 'Inicio' },
     href: '/',
     style:
-      'antialiased block px-3 py-1 text-white hover:bg-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 dark:focus:ring-opacity-0 focus:bg-gray-700',
+      'antialiased block px-3 py-1.5 text-white hover:bg-gray-700 rounded-md',
   },
   {
     name: { en: 'About', es: 'Acerca' },
     href: '/about',
     style:
-      'antialiased mt-1 block px-3 py-1 text-white hover:bg-gray-700 rounded sm:mt-0 sm:ml-4 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50  dark:focus:ring-opacity-0 focus:bg-gray-700',
+      'antialiased mt-1 block px-3 py-1.5 text-white hover:bg-gray-700 rounded-md sm:mt-0 sm:ml-4',
   },
   {
     name: { en: 'Blog', es: 'Blog' },
     href: '/blog',
     style:
-      'antialiased mt-1 block px-3 py-1 text-white hover:bg-gray-700 rounded sm:mt-0 sm:ml-4 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50  dark:focus:ring-opacity-0 focus:bg-gray-700',
+      'antialiased mt-1 block px-3 py-1.5 text-white hover:bg-gray-700 rounded-md sm:mt-0 sm:ml-4',
   },
   {
     name: { en: 'Bookshelf', es: 'Biblioteca' },
     href: '/bookshelf',
     style:
-      'antialiased mt-1 block px-3 py-1 text-white hover:bg-gray-700 rounded sm:mt-0 sm:ml-4 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50  dark:focus:ring-opacity-0 focus:bg-gray-700',
+      'antialiased mt-1 block px-3 py-1.5 text-white hover:bg-gray-700 rounded-md sm:mt-0 sm:ml-4',
   },
 ]
 export default function Navbar({ setDark, dark }) {
   const router = useRouter()
-  const { locale } = router
+  const { locale, pathname } = router
   const [open, setOpen] = useState(false)
 
   const handleMenuExpand = () => {
@@ -41,13 +41,13 @@ export default function Navbar({ setDark, dark }) {
     setDark(prevState => !prevState)
   }
   return (
-    <header className='bg-gray-600 sticky top-0 z-20 dark:bg-gray-900 transition-colors '>
-      <div className='mx-auto sm:flex sm:items-center sm:justify-between sm:px-4 sm:py-2 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl'>
-        <div className='flex items-center justify-between px-4 py-2 sm:p-0 sm:order-last'>
+    <header className='bg-gray-100 dark:bg-gray-800 transition-colors'>
+      <div className='mx-auto sm:flex sm:items-center sm:justify-between pt-2 sm:pt-6 sm:pb-2 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl'>
+        <div className='flex items-center justify-between px-6 py-2 sm:p-0 sm:order-last'>
           <div className='sm:hidden'>
             <button
               type='button'
-              className='p-1 text-gray-100 focus:text-white focus:outline-none rounded focus:ring-2 focus:ring-white focus:ring-opacity-50 focus:bg-gray-700 dark:focus:bg-gray-800'
+              className='p-1.5 text-gray-500 dark:text-gray-300 dark:focus:text-gray-100 focus:text-gray-900 rounded-md focus:outline-none'
               onClick={handleMenuExpand}
               aria-label='expand menu'>
               <svg
@@ -74,7 +74,7 @@ export default function Navbar({ setDark, dark }) {
           </div>
           <div className='flex items-center'>
             <button
-              className='p-1 mr-3 text-gray-100 focus:text-white hover:bg-gray-700 focus:outline-none rounded focus:ring-2 focus:ring-gray-200 focus:ring-opacity-90 focus:bg-gray-700'
+              className='p-1.5 mr-3 text-gray-600 dark:text-gray-300 bg-gray-300 hover:border-opacity-100 border-2 border-gray-500 dark:hover:border-gray-200 border-opacity-0 dark:bg-gray-700 rounded-md'
               onClick={handleToggleDarkTheme}
               aria-label='toggle dark and light theme'>
               <svg
@@ -105,14 +105,51 @@ export default function Navbar({ setDark, dark }) {
         <div
           className={`${
             open ? 'block' : 'hidden'
-          } px-2 pt-2 pb-4 sm:flex sm:p-0 sm:text-sm`}>
-          {navigation.map(({ href, name, style }) => (
-            <Link href={href} key={href}>
-              <a className={style} onClick={handleMenuExpand}>
-                {locale === 'en' ? name.en : name.es}
-              </a>
-            </Link>
-          ))}
+          } px-2 pt-2 pb-4 sm:flex sm:p-0 sm:space-x-2 border-b sm:border-0`}>
+          <Link href='/' key='/'>
+            <a
+              className={`${
+                pathname === '/'
+                  ? 'font-semibold text-gray-900 dark:text-gray-100'
+                  : 'text-gray-500 dark:text-gray-400'
+              } antialiased block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md ease-out duration-300`}
+              onClick={handleMenuExpand}>
+              {locale === 'en' ? 'Home' : 'Inicio'}
+            </a>
+          </Link>
+          <Link href='/about' key='/about'>
+            <a
+              className={`${
+                pathname === '/about'
+                  ? 'font-semibold text-gray-900 dark:text-gray-100'
+                  : 'text-gray-500 dark:text-gray-400'
+              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 ease-out duration-300`}
+              onClick={handleMenuExpand}>
+              {locale === 'en' ? 'About' : 'Acerca'}
+            </a>
+          </Link>
+          <Link href='/blog' key='/blog'>
+            <a
+              className={`${
+                pathname === '/blog'
+                  ? 'font-semibold text-gray-900 dark:text-gray-100'
+                  : 'text-gray-500 dark:text-gray-400'
+              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 ease-out duration-300`}
+              onClick={handleMenuExpand}>
+              Blog
+            </a>
+          </Link>
+          <Link href='/bookshelf' key='/bookshelf'>
+            <a
+              className={`${
+                pathname === '/bookshelf'
+                  ? 'font-semibold text-gray-900 dark:text-gray-100'
+                  : 'text-gray-500 dark:text-gray-400'
+              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 ease-out duration-300`}
+              onClick={handleMenuExpand}>
+              {locale === 'en' ? 'Bookshelf' : 'Biblioteca'}
+            </a>
+          </Link>
         </div>
       </div>
     </header>

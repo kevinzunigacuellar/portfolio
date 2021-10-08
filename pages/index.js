@@ -9,18 +9,23 @@ import {
 import ListOfPosts from 'components/ListOfPosts'
 import { homeData } from 'data/pageData'
 import Title from 'components/Title'
-export default function Home({ blogPostsData, homeDataLocale }) {
+import Text from 'components/Text'
+import Subtitle from 'components/Subtitle'
+export default function Home({
+  blogPostsData,
+  homeDataLocale: { description, pageTitle, postsTitle, role },
+}) {
   return (
     <>
       <Head>
-        <title>{homeDataLocale.pageTitle}</title>
-        <meta name='description' content={homeDataLocale.description} />
+        <title>{pageTitle}</title>
+        <meta name='description' content={description} />
         <meta name='robots' content='index, follow' />
       </Head>
 
-      <div className='mt-8 sm:flex sm:items-center'>
-        <div className='max-w-sm mx-auto sm:m-0'>
-          <div className='relative pb-3/2 rounded-lg sm:w-60 md:w-72 lg:w-80 overflow-hidden'>
+      <div className='sm:flex sm:items-center'>
+        <div className='max-w-sm sm:m-0 order-2'>
+          <div className='relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden'>
             <Image
               className='absolute w-full h-full object-cover'
               src={profilePic}
@@ -30,15 +35,20 @@ export default function Home({ blogPostsData, homeDataLocale }) {
             />
           </div>
         </div>
-        <div className='p-4 sm:p-10'>
-          <Title>{homeDataLocale.welcome}</Title>
-          <p className='max-w-lg leading-relaxed text-gray-600 dark:text-gray-400'>
-            {homeDataLocale.description}
-          </p>
+        <div className='sm:p-10 order-1'>
+          <div className='mt-4 mb-6 space-y-1'>
+            <Title>Kevin Zuniga Cuellar</Title>
+            <p className='max-w-lg leading-relaxed text-gray-900 dark:text-gray-300'>
+              {role}
+            </p>
+          </div>
+          <Text>{description}</Text>
         </div>
       </div>
       <div className='mt-10'>
-        <Title>{homeDataLocale.postsTitle}</Title>
+        <div className='mb-4'>
+          <Subtitle>{postsTitle}</Subtitle>
+        </div>
         <ListOfPosts blogPostsData={blogPostsData} />
       </div>
     </>

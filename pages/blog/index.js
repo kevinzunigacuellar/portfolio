@@ -13,7 +13,9 @@ export default function Blog({ blogPostsData }) {
       <Head>
         <title>Blog - Kevin Zuniga Cuellar</title>
       </Head>
-      <Title>Blog</Title>
+      <div className='pb-5'>
+        <Title>Blog</Title>
+      </div>
       <ListOfPosts blogPostsData={blogPostsData} />
     </>
   )

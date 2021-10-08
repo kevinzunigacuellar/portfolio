@@ -13,10 +13,10 @@ export default function BookShelf({
         <meta name='description' content={pageDescription} />
       </Head>
       <Title>{title}</Title>
-      <p className='max-w-lg leading-relaxed text-gray-500 dark:text-gray-400'>
+      <p className='max-w-lg leading-relaxed text-gray-500 dark:text-gray-400 mt-2'>
         {pageDescription}
       </p>
-      <div className='grid grid-cols-1 justify-items-center md:justify-items-start my-6 gap-6'>
+      <div className='grid grid-cols-1 justify-items-center md:justify-items-start my-6 gap-y-6'>
         {books.map(({ img, title, author, year, comment }) => (
           <Book
             key={title}
