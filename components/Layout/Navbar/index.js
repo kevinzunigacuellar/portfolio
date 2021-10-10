@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import Link from 'next/link'
 import LanguageSelect from 'components/LanguageSelect'
 import { useRouter } from 'next/router'
 
 export default function Navbar() {
-  const [dark, setDark] = useState(false)
+  const [dark, setDark] = useState(null)
   const [open, setOpen] = useState(false)
 
   const router = useRouter()
   const { locale, pathname } = router
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (localStorage.getItem('darkmode') === 'true') {
       document.documentElement.classList.add('dark')
       setDark(true)
