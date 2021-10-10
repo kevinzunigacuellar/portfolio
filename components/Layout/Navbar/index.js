@@ -1,53 +1,38 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import LanguageSelect from 'components/LanguageSelect'
 import { useRouter } from 'next/router'
-export const navigation = [
-  {
-    name: { en: 'Home', es: 'Inicio' },
-    href: '/',
-    style:
-      'antialiased block px-3 py-1.5 text-white hover:bg-gray-700 rounded-md',
-  },
-  {
-    name: { en: 'About', es: 'Acerca' },
-    href: '/about',
-    style:
-      'antialiased mt-1 block px-3 py-1.5 text-white hover:bg-gray-700 rounded-md sm:mt-0 sm:ml-4',
-  },
-  {
-    name: { en: 'Blog', es: 'Blog' },
-    href: '/blog',
-    style:
-      'antialiased mt-1 block px-3 py-1.5 text-white hover:bg-gray-700 rounded-md sm:mt-0 sm:ml-4',
-  },
-  {
-    name: { en: 'Bookshelf', es: 'Biblioteca' },
-    href: '/bookshelf',
-    style:
-      'antialiased mt-1 block px-3 py-1.5 text-white hover:bg-gray-700 rounded-md sm:mt-0 sm:ml-4',
-  },
-]
-export default function Navbar({ setDark, dark }) {
+
+export default function Navbar() {
+  const [dark, setDark] = useState(false)
+  const [open, setOpen] = useState(false)
+
   const router = useRouter()
   const { locale, pathname } = router
-  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (localStorage.getItem('darkmode') === 'true') {
+      document.documentElement.classList.add('dark')
+      setDark(true)
+    }
+  }, [])
 
   const handleMenuExpand = () => {
     setOpen(prevState => !prevState)
   }
   const handleToggleDarkTheme = () => {
-    document.documentElement.classList.toggle('dark')
+    const darkTheme = document.documentElement.classList.toggle('dark')
+    localStorage.setItem('darkmode', darkTheme)
     setDark(prevState => !prevState)
   }
   return (
     <header className='bg-gray-100 dark:bg-gray-800 transition-colors'>
-      <div className='mx-auto sm:flex sm:items-center sm:justify-between pt-2 sm:pt-6 sm:pb-2 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl'>
-        <div className='flex items-center justify-between px-6 py-2 sm:p-0 sm:order-last'>
+      <div className='mx-auto px-4 sm:flex sm:items-center sm:justify-between pt-2 sm:pt-6 sm:pb-2 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl'>
+        <div className='flex items-center justify-between py-2 sm:p-0 sm:order-last'>
           <div className='sm:hidden'>
             <button
               type='button'
-              className='p-1.5 text-gray-500 dark:text-gray-300 dark:focus:text-gray-100 focus:text-gray-900 rounded-md focus:outline-none'
+              className='p-1.5 text-gray-500 dark:text-gray-300 dark:focus:text-gray-100 focus:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-300'
               onClick={handleMenuExpand}
               aria-label='expand menu'>
               <svg
@@ -74,7 +59,7 @@ export default function Navbar({ setDark, dark }) {
           </div>
           <div className='flex items-center'>
             <button
-              className='p-1.5 mr-3 text-gray-600 dark:text-gray-300 bg-gray-300 hover:border-opacity-100 border-2 border-gray-500 dark:hover:border-gray-200 border-opacity-0 dark:bg-gray-700 rounded-md'
+              className='p-1.5 mr-3 text-gray-600 dark:text-gray-300 bg-gray-300 hover:border-opacity-100 border-2 border-gray-500 dark:hover:border-gray-200 border-opacity-0 dark:bg-gray-700 rounded-md focus:outline-none focus:ring-2 ring-indigo-300 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-800'
               onClick={handleToggleDarkTheme}
               aria-label='toggle dark and light theme'>
               <svg
@@ -112,7 +97,7 @@ export default function Navbar({ setDark, dark }) {
                 pathname === '/'
                   ? 'font-semibold text-gray-900 dark:text-gray-100'
                   : 'text-gray-500 dark:text-gray-400'
-              } antialiased block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md ease-out duration-300`}
+              } antialiased block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {locale === 'en' ? 'Home' : 'Inicio'}
             </a>
@@ -123,7 +108,7 @@ export default function Navbar({ setDark, dark }) {
                 pathname === '/about'
                   ? 'font-semibold text-gray-900 dark:text-gray-100'
                   : 'text-gray-500 dark:text-gray-400'
-              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 ease-out duration-300`}
+              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {locale === 'en' ? 'About' : 'Acerca'}
             </a>
@@ -134,7 +119,7 @@ export default function Navbar({ setDark, dark }) {
                 pathname === '/blog'
                   ? 'font-semibold text-gray-900 dark:text-gray-100'
                   : 'text-gray-500 dark:text-gray-400'
-              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 ease-out duration-300`}
+              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               Blog
             </a>
@@ -145,7 +130,7 @@ export default function Navbar({ setDark, dark }) {
                 pathname === '/bookshelf'
                   ? 'font-semibold text-gray-900 dark:text-gray-100'
                   : 'text-gray-500 dark:text-gray-400'
-              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 ease-out duration-300`}
+              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {locale === 'en' ? 'Bookshelf' : 'Biblioteca'}
             </a>

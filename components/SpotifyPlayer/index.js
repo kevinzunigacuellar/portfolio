@@ -1,7 +1,7 @@
-import NotPlaying from '/components/NotPlaying'
-import CurrentlyPlaying from '/components/CurrentlyPlaying'
-import useSWR from 'swr'
+import NotPlaying from '/components/SpotifyPlayer/NotPlaying'
+import CurrentlyPlaying from '/components/SpotifyPlayer/CurrentlyPlaying'
 import { getSong } from '/services/getSong'
+import useSWR from 'swr'
 
 export default function SpotifyPlayer() {
   const { data, error } = useSWR('/api/spotify_current_song', getSong)

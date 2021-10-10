@@ -7,7 +7,7 @@ import {
   parseMarkdown,
 } from 'lib/parseBlogPosts'
 import ListOfPosts from 'components/ListOfPosts'
-import { homeData } from 'data/pageData'
+import homeData from 'data/homeData.json'
 import Title from 'components/Title'
 import Text from 'components/Text'
 import Subtitle from 'components/Subtitle'

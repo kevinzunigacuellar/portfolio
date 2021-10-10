@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState, Fragment } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 import { useRouter } from 'next/router'
@@ -21,7 +21,7 @@ export default function LanguageSelect() {
     <div className='w-20'>
       <Listbox value={selected} onChange={setSelected}>
         <div className='relative'>
-          <Listbox.Button className='relative w-full py-2 pl-3 pr-2 text-left bg-white dark:bg-gray-700 shadow text-gray-600 dark:text-gray-300 rounded-md cursor-default focus:outline-none'>
+          <Listbox.Button className='relative w-full py-2 pl-3 pr-2 text-left bg-white dark:bg-gray-700 shadow text-gray-600 dark:text-gray-300 rounded-md cursor-default focus:outline-none focus:ring-2 ring-indigo-300 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-800'>
             <span className='block'>{selected.name}</span>
             <span className='absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'>
               <SelectorIcon

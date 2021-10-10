@@ -1,0 +1,15 @@
+{
+  "en": {
+    "pageTitle": "My bookshelf - Kevin Zuniga Cuellar",
+    "title": "My bookshelf",
+    "pageDescription":
+      "I love reading so I thought of making a bookshelf were I share all the books I finished cover to cover."
+  },
+
+  "es": {
+    "pageTitle": "Mi estante de libros - Kevin Zuniga Cuellar",
+    "title": "Mi estante de libros",
+    "pageDescription":
+      "Me gusta leer, por eso pense en hacer un estante de libros donde compartire todos los libros que he terminado de tapa a tapa."
+  }
+}

@@ -4,12 +4,13 @@ import Twitter from 'components/icons/Twitter'
 import SpotifyPlayer from 'components/SpotifyPlayer'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { navigation } from '../Navbar'
+
 export default function Footer() {
   const router = useRouter()
   const { locale } = router
+
   return (
-    <footer className='bg-gray-200 p-4 flex-shrink-0 border-t border-gray-300 dark:bg-gray-900 dark:border-gray-500 transition-all'>
+    <footer className='bg-gray-200 py-4 px-4 flex-shrink-0 border-t border-gray-300 dark:bg-gray-900 dark:border-gray-500 transition-all'>
       <div className='mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-4xl'>
         <div className='mx-auto w-72 sm:m-0 sm:w-auto'>
           <div className='flex flex-col sm:flex-row sm:justify-around'>
@@ -40,13 +41,26 @@ export default function Footer() {
               </div>
             </div>
             <div className='flex flex-col py-2 sm:w-auto sm:max-w-md'>
-              {navigation.map(({ name, href }) => (
-                <Link href={href} key={name + href}>
-                  <a className='py-2 cursor-pointer antialiased text-md text-gray-500 hover:text-gray-800 font-semibold dark:text-gray-400 dark:hover:text-gray-300'>
-                    {locale === 'en' ? name.en : name.es}
-                  </a>
-                </Link>
-              ))}
+              <Link href='/' key='footer-Home'>
+                <a className='py-2 cursor-pointer antialiased text-md text-gray-500 hover:text-gray-800 font-semibold dark:text-gray-400 dark:hover:text-gray-300'>
+                  {locale === 'en' ? 'Home' : 'Inicio'}
+                </a>
+              </Link>
+              <Link href='/about' key='footer-about'>
+                <a className='py-2 cursor-pointer antialiased text-md text-gray-500 hover:text-gray-800 font-semibold dark:text-gray-400 dark:hover:text-gray-300'>
+                  {locale === 'en' ? 'About' : 'Acerca'}
+                </a>
+              </Link>
+              <Link href='/blog' key='footer-blog'>
+                <a className='py-2 cursor-pointer antialiased text-md text-gray-500 hover:text-gray-800 font-semibold dark:text-gray-400 dark:hover:text-gray-300'>
+                  Blog
+                </a>
+              </Link>
+              <Link href='/bookshelf' key='footer-bookshelf'>
+                <a className='py-2 cursor-pointer antialiased text-md text-gray-500 hover:text-gray-800 font-semibold dark:text-gray-400 dark:hover:text-gray-300'>
+                  {locale === 'en' ? 'Bookshelf' : 'Biblioteca'}
+                </a>
+              </Link>
             </div>
           </div>
         </div>

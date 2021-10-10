@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import BlogPost from 'components/BlogPost'
+import BlogPost from 'components/ListOfPosts/BlogPost'
 export default function ListOfPosts({ blogPostsData }) {
   return (
     <div>

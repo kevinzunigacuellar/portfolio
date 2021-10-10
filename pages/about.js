@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import Title from 'components/Title'
 import ImageCard from 'components/ImageCard'
-import { aboutPageData } from 'data/pageData'
 import gifindImage from 'public/img/gifind.png'
 import hotelManantialImage from 'public/img/hotelmanantialchurin.png'
+import aboutData from 'data/aboutData.json'
 
 export default function About({
   aboutDataLocale: { pageTitle, pageProjects },
@@ -14,7 +14,7 @@ export default function About({
         <title>{pageTitle}</title>
       </Head>
       <Title>{pageProjects}</Title>
-      <div className='grid grid-cols-1 gap-6 mt-5'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mt-5'>
         <ImageCard
           title='Gifind'
           url='https://gifind.vercel.app/'
@@ -31,7 +31,7 @@ export default function About({
 }
 
 export async function getStaticProps({ locale }) {
-  const aboutDataLocale = aboutPageData[locale]
+  const aboutDataLocale = aboutData[locale]
   return {
     props: { aboutDataLocale },
   }

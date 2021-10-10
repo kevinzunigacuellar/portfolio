@@ -1,5 +1,10 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
+
 export default function Book({ img, title, author, year, comment }) {
+  const router = useRouter()
+  const { locale } = router
+
   return (
     <div className='max-w-md md:max-w-4xl bg-white rounded-lg shadow overflow-hidden dark:bg-gray-900 dark:border-gray-500 transition-colors'>
       <div className='md:flex'>
@@ -23,7 +28,7 @@ export default function Book({ img, title, author, year, comment }) {
             <span className='text-gray-500 dark:text-gray-400'>{year}</span>
           </p>
           <q className='text-gray-500 leading-relaxed dark:text-gray-400'>
-            {comment}
+            {comment[locale]}
           </q>
         </div>
       </div>
