@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import LanguageSelect from 'components/LanguageSelect'
 import { useRouter } from 'next/router'
@@ -10,7 +10,7 @@ export default function Navbar() {
   const router = useRouter()
   const { locale, pathname } = router
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (localStorage.getItem('darkmode') === 'true') {
       document.documentElement.classList.add('dark')
       setDark(true)
@@ -27,8 +27,8 @@ export default function Navbar() {
   }
   return (
     <header className='bg-gray-100 dark:bg-gray-800 transition-colors'>
-      <div className='mx-auto px-4 sm:flex sm:items-center sm:justify-between pt-2 sm:pt-6 sm:pb-2 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl'>
-        <div className='flex items-center justify-between py-2 sm:p-0 sm:order-last'>
+      <div className='mx-auto px-6 sm:pl-4 sm:flex sm:items-center sm:justify-between pt-8 pb-4 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl'>
+        <div className='flex items-center justify-between order-last'>
           <div className='sm:hidden'>
             <button
               type='button'
@@ -87,10 +87,10 @@ export default function Navbar() {
             <LanguageSelect />
           </div>
         </div>
-        <div
+        <nav
           className={`${
             open ? 'block' : 'hidden'
-          } px-2 pt-2 pb-4 sm:flex sm:p-0 sm:space-x-2 border-b sm:border-0`}>
+          } pt-2 pb-4 sm:flex sm:p-0 sm:space-x-2 border-b sm:border-0`}>
           <Link href='/' key='/'>
             <a
               className={`${
@@ -135,7 +135,7 @@ export default function Navbar() {
               {locale === 'en' ? 'Bookshelf' : 'Biblioteca'}
             </a>
           </Link>
-        </div>
+        </nav>
       </div>
     </header>
   )

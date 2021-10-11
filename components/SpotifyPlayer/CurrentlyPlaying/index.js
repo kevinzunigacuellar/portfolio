@@ -27,7 +27,7 @@ export default function CurrentlyPlaying({
           {PLAYING_TEXT_LANGUAGE[locale]}
         </p>
       </div>
-      <div className='w-72 sm:w-96'>
+      <div className='w-auto max-w-sm sm:w-96'>
         <a
           href={songUrl}
           target='_blank'

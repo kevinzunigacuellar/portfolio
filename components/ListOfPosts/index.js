@@ -2,7 +2,7 @@ import Link from 'next/link'
 import BlogPost from 'components/ListOfPosts/BlogPost'
 export default function ListOfPosts({ blogPostsData }) {
   return (
-    <div>
+    <>
       {blogPostsData.map(({ title, description, url, date }) => {
         return (
           <article key={url} className='mb-5'>
@@ -14,6 +14,6 @@ export default function ListOfPosts({ blogPostsData }) {
           </article>
         )
       })}
-    </div>
+    </>
   )
 }

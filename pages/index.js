@@ -8,9 +8,7 @@ import {
 } from 'lib/parseBlogPosts'
 import ListOfPosts from 'components/ListOfPosts'
 import homeData from 'data/homeData.json'
-import Title from 'components/Title'
 import Text from 'components/Text'
-import Subtitle from 'components/Subtitle'
 export default function Home({
   blogPostsData,
   homeDataLocale: { description, pageTitle, postsTitle, role },
@@ -23,7 +21,7 @@ export default function Home({
         <meta name='robots' content='index, follow' />
       </Head>
 
-      <div className='sm:flex sm:items-center'>
+      <section className='sm:flex sm:items-center sm:justify-between'>
         <div className='max-w-sm sm:m-0 order-2'>
           <div className='relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden'>
             <Image
@@ -35,22 +33,24 @@ export default function Home({
             />
           </div>
         </div>
-        <div className='sm:p-10 order-1'>
-          <div className='mt-4 mb-6 space-y-1'>
-            <Title>Kevin Zuniga Cuellar</Title>
-            <p className='max-w-lg leading-relaxed text-gray-900 dark:text-gray-300'>
+        <div className='order-1'>
+          <header className='mt-4 mb-6 space-y-1'>
+            <h1 className='text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100'>
+              Kevin Zuniga Cuellar
+            </h1>
+            <h3 className='max-w-lg leading-relaxed text-gray-900 dark:text-gray-300'>
               {role}
-            </p>
-          </div>
+            </h3>
+          </header>
           <Text>{description}</Text>
         </div>
-      </div>
-      <div className='mt-10'>
-        <div className='mb-4'>
-          <Subtitle>{postsTitle}</Subtitle>
-        </div>
+      </section>
+      <section className='mt-10'>
+        <h2 className='text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 leading-relaxed mb-4'>
+          {postsTitle}
+        </h2>
         <ListOfPosts blogPostsData={blogPostsData} />
-      </div>
+      </section>
     </>
   )
 }

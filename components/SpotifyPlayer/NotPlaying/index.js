@@ -10,7 +10,7 @@ export default function NotPlaying() {
   const { locale } = router
   return (
     <div
-      className='grid justify-items-center sm:w-96 w-72 bg-white dark:bg-gray-700 rounded-md py-3 mt-8'
+      className='grid justify-items-center sm:w-96 w-auto max-w-sm bg-white dark:bg-gray-700 rounded-md py-3 mt-8'
       aria-label={`Spotify ${NOT_PLAYING_TEXT_LANGUAGE[locale]}`}>
       <div className='flex items-center'>
         <svg

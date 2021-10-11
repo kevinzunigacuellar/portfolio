@@ -2,10 +2,10 @@ import Image from 'next/image'
 
 export default function ImageCard({ title, url, img }) {
   return (
-    <div className='max-w-4xl rounded-lg overflow-hidden shadow hover:shadow-md'>
+    <figure className='max-w-4xl rounded-lg overflow-hidden shadow hover:shadow-md'>
       <div className='relative pb-2/3'>
         <div className='group absolute w-full h-full z-10 bg-gray-900 bg-opacity-0 hover:bg-opacity-50 transition-all'>
-          <div className='absolute bottom-0 py-6 text-center w-full bg-gray-700 dark:bg-opacity-0 bg-opacity-0 group-hover:bg-opacity-90'>
+          <figcaption className='absolute bottom-0 py-6 text-center w-full bg-gray-700 dark:bg-opacity-0 bg-opacity-0 group-hover:bg-opacity-90'>
             <h4 className='sm:text-xl text-gray-100 text-opacity-0 group-hover:text-opacity-100 font-semibold'>
               {title}
             </h4>
@@ -16,7 +16,7 @@ export default function ImageCard({ title, url, img }) {
               rel='noreferrer'>
               {url}
             </a>
-          </div>
+          </figcaption>
         </div>
         <Image
           className='absolute w-full h-full object-cover'
@@ -26,6 +26,6 @@ export default function ImageCard({ title, url, img }) {
           placeholder='blur'
         />
       </div>
-    </div>
+    </figure>
   )
 }

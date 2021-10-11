@@ -1,5 +1,4 @@
 import ListOfPosts from 'components/ListOfPosts'
-import Title from 'components/Title'
 import Head from 'next/head'
 import {
   readPostsDirectory,
@@ -13,9 +12,9 @@ export default function Blog({ blogPostsData }) {
       <Head>
         <title>Blog - Kevin Zuniga Cuellar</title>
       </Head>
-      <div className='pb-5'>
-        <Title>Blog</Title>
-      </div>
+      <h1 className='pb-5 text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100'>
+        Blog
+      </h1>
       <ListOfPosts blogPostsData={blogPostsData} />
     </>
   )
