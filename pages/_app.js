@@ -21,12 +21,29 @@ function MyApp({ Component, pageProps }) {
   return (
     <Layout>
       <Head>
-        <link rel='icon' href='/logo.svg' />
         <meta charSet='utf-8' />
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <meta name='keywords' content='software, blog, developer, student' />
+        <meta name='rating' content='General' />
         <link rel='canonical' href='https://www.kevinzunigacuellar.com' />
         <meta name='author' content='Kevin Zuniga Cuellar' />
+        <link
+          rel='apple-touch-icon'
+          sizes='180x180'
+          href='/logo/apple-touch-icon.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='32x32'
+          href='/logo/favicon-32x32.png'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          sizes='16x16'
+          href='/logo/favicon-16x16.png'
+        />
       </Head>
       <Component {...pageProps} />
     </Layout>

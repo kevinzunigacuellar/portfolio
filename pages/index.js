@@ -19,6 +19,7 @@ export default function Home({
         <title>{pageTitle}</title>
         <meta name='description' content={description} />
         <meta name='robots' content='index, follow' />
+        <meta name='googlebot' content='index,follow' />
       </Head>
 
       <section className='sm:flex sm:items-center sm:justify-between'>
