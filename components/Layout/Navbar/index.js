@@ -32,7 +32,7 @@ export default function Navbar() {
           <div className='sm:hidden'>
             <button
               type='button'
-              className='p-1.5 text-gray-500 dark:text-gray-300 dark:focus:text-gray-100 focus:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-300'
+              className='p-1.5 text-gray-600 dark:text-gray-300 dark:focus:text-gray-100 focus:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-300'
               onClick={handleMenuExpand}
               aria-label='expand menu'>
               <svg
@@ -96,7 +96,7 @@ export default function Navbar() {
               className={`${
                 pathname === '/'
                   ? 'font-semibold text-gray-900 dark:text-gray-100'
-                  : 'text-gray-500 dark:text-gray-400'
+                  : 'text-gray-600 dark:text-gray-400'
               } antialiased block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {locale === 'en' ? 'Home' : 'Inicio'}
@@ -107,7 +107,7 @@ export default function Navbar() {
               className={`${
                 pathname === '/about'
                   ? 'font-semibold text-gray-900 dark:text-gray-100'
-                  : 'text-gray-500 dark:text-gray-400'
+                  : 'text-gray-600 dark:text-gray-400'
               } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {locale === 'en' ? 'About' : 'Acerca'}
@@ -118,7 +118,7 @@ export default function Navbar() {
               className={`${
                 pathname === '/blog'
                   ? 'font-semibold text-gray-900 dark:text-gray-100'
-                  : 'text-gray-500 dark:text-gray-400'
+                  : 'text-gray-600 dark:text-gray-400'
               } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               Blog
@@ -129,7 +129,7 @@ export default function Navbar() {
               className={`${
                 pathname === '/bookshelf'
                   ? 'font-semibold text-gray-900 dark:text-gray-100'
-                  : 'text-gray-500 dark:text-gray-400'
+                  : 'text-gray-600 dark:text-gray-400'
               } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {locale === 'en' ? 'Bookshelf' : 'Biblioteca'}

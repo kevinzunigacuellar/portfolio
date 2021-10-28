@@ -39,9 +39,9 @@ export default function Home({
             <h1 className='text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100'>
               Kevin Zuniga Cuellar
             </h1>
-            <h3 className='max-w-lg leading-relaxed text-gray-900 dark:text-gray-300'>
+            <h2 className='max-w-lg leading-relaxed text-gray-900 dark:text-gray-300'>
               {role}
-            </h3>
+            </h2>
           </header>
           <Text>{description}</Text>
         </div>

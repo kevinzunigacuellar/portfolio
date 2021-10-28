@@ -41,22 +41,22 @@ export default function Footer() {
           </div>
           <nav className='flex flex-col py-2 sm:w-auto sm:max-w-md'>
             <Link href='/' key='footer-Home'>
-              <a className='py-2 cursor-pointer antialiased text-md text-gray-500 hover:text-gray-800 font-semibold dark:text-gray-400 dark:hover:text-gray-300'>
+              <a className='py-2 cursor-pointer antialiased text-md text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
                 {locale === 'en' ? 'Home' : 'Inicio'}
               </a>
             </Link>
             <Link href='/about' key='footer-about'>
-              <a className='py-2 cursor-pointer antialiased text-md text-gray-500 hover:text-gray-800 font-semibold dark:text-gray-400 dark:hover:text-gray-300'>
+              <a className='py-2 cursor-pointer antialiased text-md text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
                 {locale === 'en' ? 'About' : 'Acerca'}
               </a>
             </Link>
             <Link href='/blog' key='footer-blog'>
-              <a className='py-2 cursor-pointer antialiased text-md text-gray-500 hover:text-gray-800 font-semibold dark:text-gray-400 dark:hover:text-gray-300'>
+              <a className='py-2 cursor-pointer antialiased text-md text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
                 Blog
               </a>
             </Link>
             <Link href='/bookshelf' key='footer-bookshelf'>
-              <a className='py-2 cursor-pointer antialiased text-md text-gray-500 hover:text-gray-800 font-semibold dark:text-gray-400 dark:hover:text-gray-300'>
+              <a className='py-2 cursor-pointer antialiased text-md text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
                 {locale === 'en' ? 'Bookshelf' : 'Biblioteca'}
               </a>
             </Link>
