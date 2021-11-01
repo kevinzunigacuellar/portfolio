@@ -1,4 +1,3 @@
-import Title from 'components/Title'
 import Head from 'next/head'
 import Book from 'components/Book'
 import bookshelfData from 'data/bookshelfData.json'
@@ -14,7 +13,9 @@ export default function BookShelf({
         <title>{pageTitle}</title>
         <meta name='description' content={pageDescription} />
       </Head>
-      <Title>{title}</Title>
+      <h1 className='text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100'>
+        {title}
+      </h1>
       <p className='max-w-lg leading-relaxed text-gray-500 dark:text-gray-400 mt-2'>
         {pageDescription}
       </p>
