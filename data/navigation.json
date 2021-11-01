@@ -1,0 +1,14 @@
+{
+  "home": {
+    "en": "Home",
+    "es": "Inicio"
+  },
+  "about": {
+    "en": "About",
+    "es": "Acerca"
+  },
+  "bookshelf": {
+    "en": "Bookshelf",
+    "es": "Biblioteca"
+  }
+}

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import LanguageSelect from 'components/LanguageSelect'
+import NAVIGATION from 'data/navigation.json'
 import { useRouter } from 'next/router'
+import LanguageSelect from 'components/LanguageSelect'
 
 export default function Navbar() {
   const [dark, setDark] = useState(null)
@@ -59,7 +60,7 @@ export default function Navbar() {
           </div>
           <div className='flex items-center'>
             <button
-              className='p-1.5 mr-3 text-gray-600 dark:text-gray-300 bg-gray-300 hover:border-opacity-100 border-2 border-gray-500 dark:hover:border-gray-200 border-opacity-0 dark:bg-gray-700 rounded-md focus:outline-none focus:ring-2 ring-indigo-300 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-800'
+              className='p-1.5 mr-3 text-gray-500 dark:text-gray-300 bg-gray-300 dark:bg-gray-700 rounded-md focus:outline-none focus:ring-2 ring-indigo-300 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-800'
               onClick={handleToggleDarkTheme}
               aria-label='toggle dark and light theme'>
               <svg
@@ -95,29 +96,29 @@ export default function Navbar() {
             <a
               className={`${
                 pathname === '/'
-                  ? 'font-semibold text-gray-900 dark:text-gray-100'
+                  ? 'text-gray-900 dark:text-gray-100 font-semibold'
                   : 'text-gray-600 dark:text-gray-400'
               } antialiased block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
-              {locale === 'en' ? 'Home' : 'Inicio'}
+              {NAVIGATION.home[locale]}
             </a>
           </Link>
           <Link href='/about' key='/about'>
             <a
               className={`${
-                pathname === '/about'
-                  ? 'font-semibold text-gray-900 dark:text-gray-100'
+                pathname.includes('/about')
+                  ? 'text-gray-900 dark:text-gray-100 font-semibold'
                   : 'text-gray-600 dark:text-gray-400'
               } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
-              {locale === 'en' ? 'About' : 'Acerca'}
+              {NAVIGATION.about[locale]}
             </a>
           </Link>
           <Link href='/blog' key='/blog'>
             <a
               className={`${
-                pathname === '/blog'
-                  ? 'font-semibold text-gray-900 dark:text-gray-100'
+                pathname.includes('/blog')
+                  ? 'text-gray-900 dark:text-gray-100 font-semibold'
                   : 'text-gray-600 dark:text-gray-400'
               } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
@@ -127,12 +128,12 @@ export default function Navbar() {
           <Link href='/bookshelf' key='/bookshelf'>
             <a
               className={`${
-                pathname === '/bookshelf'
-                  ? 'font-semibold text-gray-900 dark:text-gray-100'
+                pathname.includes('/bookshelf')
+                  ? 'text-gray-900 dark:text-gray-100 font-semibold'
                   : 'text-gray-600 dark:text-gray-400'
               } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
-              {locale === 'en' ? 'Bookshelf' : 'Biblioteca'}
+              {NAVIGATION.bookshelf[locale]}
             </a>
           </Link>
         </nav>

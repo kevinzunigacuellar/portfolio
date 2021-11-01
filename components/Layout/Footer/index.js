@@ -1,6 +1,7 @@
 import Github from 'components/icons/Github'
 import LinkedIn from 'components/icons/LinkedIn'
 import Twitter from 'components/icons/Twitter'
+import NAVIGATION from 'data/navigation.json'
 import SpotifyPlayer from 'components/SpotifyPlayer'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -40,24 +41,24 @@ export default function Footer() {
             </address>
           </div>
           <nav className='flex flex-col py-2 sm:w-auto sm:max-w-md'>
-            <Link href='/' key='footer-Home'>
-              <a className='py-2 cursor-pointer antialiased text-md text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
-                {locale === 'en' ? 'Home' : 'Inicio'}
+            <Link href='/'>
+              <a className='py-2 cursor-pointer antialiased font-semibold text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
+                {NAVIGATION.home[locale]}
               </a>
             </Link>
-            <Link href='/about' key='footer-about'>
-              <a className='py-2 cursor-pointer antialiased text-md text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
-                {locale === 'en' ? 'About' : 'Acerca'}
+            <Link href='/about'>
+              <a className='py-2 cursor-pointer antialiased font-semibold text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
+                {NAVIGATION.about[locale]}
               </a>
             </Link>
-            <Link href='/blog' key='footer-blog'>
-              <a className='py-2 cursor-pointer antialiased text-md text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
+            <Link href='/blog'>
+              <a className='py-2 cursor-pointer antialiased font-semibold text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
                 Blog
               </a>
             </Link>
-            <Link href='/bookshelf' key='footer-bookshelf'>
-              <a className='py-2 cursor-pointer antialiased text-md text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
-                {locale === 'en' ? 'Bookshelf' : 'Biblioteca'}
+            <Link href='/bookshelf'>
+              <a className='py-2 cursor-pointer antialiased font-semibold text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
+                {NAVIGATION.bookshelf[locale]}
               </a>
             </Link>
           </nav>
