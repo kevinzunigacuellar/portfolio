@@ -24,7 +24,7 @@ export default function LanguageSelect() {
       <Listbox value={selected} onChange={onSelectChange}>
         <div className='relative z-10'>
           <Listbox.Button className='relative w-full py-2 pl-3 pr-2 text-left bg-white dark:bg-gray-700 shadow text-gray-600 dark:text-gray-300 rounded-md cursor-default focus:outline-none focus:ring-2 ring-indigo-300 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-800'>
-            <span className='block'>{selected.name || selected}</span>
+            <span className='block'>{router.locale}</span>
             <span className='absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'>
               <SelectorIcon
                 className='w-5 h-5 text-gray-400 dark:text-gray-300'
