@@ -12,10 +12,10 @@ export default function About({
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <h1 className='text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100'>
+      <h1 className='text-3xl tracking-tight sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 py-10'>
         {pageProjects}
       </h1>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mt-5'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         <ImageCard
           title='Gifind'
           url='https://gifind.vercel.app/'
