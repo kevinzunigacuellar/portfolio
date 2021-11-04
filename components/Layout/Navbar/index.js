@@ -96,9 +96,9 @@ export default function Navbar() {
             <a
               className={`${
                 pathname === '/'
-                  ? 'text-gray-900 dark:text-gray-100 font-semibold'
-                  : 'text-gray-600 dark:text-gray-400'
-              } antialiased block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md transition ease-out duration-200 focus:outline-none`}
+                  ? 'text-indigo-500 dark:text-indigo-400'
+                  : 'text-gray-500 dark:text-gray-400'
+              } block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:text-indigo-500 dark:hover:bg-gray-900 rounded-md transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {NAVIGATION.home[locale]}
             </a>
@@ -107,9 +107,9 @@ export default function Navbar() {
             <a
               className={`${
                 pathname.includes('/about')
-                  ? 'text-gray-900 dark:text-gray-100 font-semibold'
-                  : 'text-gray-600 dark:text-gray-400'
-              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
+                  ? 'text-indigo-500 dark:text-indigo-400'
+                  : 'text-gray-500 dark:text-gray-400'
+              } mt-1 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:text-indigo-500 dark:hover:bg-gray-900 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {NAVIGATION.about[locale]}
             </a>
@@ -118,9 +118,9 @@ export default function Navbar() {
             <a
               className={`${
                 pathname.includes('/blog')
-                  ? 'text-gray-900 dark:text-gray-100 font-semibold'
-                  : 'text-gray-600 dark:text-gray-400'
-              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
+                  ? 'text-indigo-500 dark:text-indigo-400'
+                  : 'text-gray-500 dark:text-gray-400'
+              } mt-1 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:text-indigo-500 dark:hover:bg-gray-900 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               Blog
             </a>
@@ -129,9 +129,9 @@ export default function Navbar() {
             <a
               className={`${
                 pathname.includes('/bookshelf')
-                  ? 'text-gray-900 dark:text-gray-100 font-semibold'
-                  : 'text-gray-600 dark:text-gray-400'
-              } antialiased mt-1 block py-1.5 px-3 hover:text-gray-900 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-200 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
+                  ? 'text-indigo-500 dark:text-indigo-400'
+                  : 'text-gray-500 dark:text-gray-400'
+              } mt-1 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:text-indigo-500 dark:hover:bg-gray-900 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {NAVIGATION.bookshelf[locale]}
             </a>

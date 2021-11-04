@@ -1,28 +1,36 @@
 import Image from 'next/image'
 import Head from 'next/head'
 import profilePic from 'public/img/me.jpg'
-import {
-  readPostsDirectory,
-  readMarkdown,
-  parseMarkdown,
-} from 'lib/parseBlogPosts'
-import ListOfPosts from 'components/ListOfPosts'
-import homeData from 'data/homeData.json'
-import Text from 'components/Text'
+import homeData from 'data/homeData'
+import Posts from 'components/Posts'
+import { getAllPosts } from 'lib/mdx'
+
 export default function Home({
-  blogPostsData,
-  homeDataLocale: { description, pageTitle, postsTitle, role },
+  homeDataLocale: { description, pageTitle, role, postsTitle },
+  posts,
 }) {
   return (
     <>
       <Head>
         <title>{pageTitle}</title>
         <meta name='description' content={description} />
-        <meta name='robots' content='index, follow' />
+        <meta name='robots' content='follow, index' />
         <meta name='googlebot' content='index,follow' />
+        <meta property='og:url' content='https://www.kevinzunigacuellar.com' />
+        <link rel='canonical' href='https://www.kevinzunigacuellar.com' />
+        <meta property='og:type' content='website' />
+        <meta property='og:site_name' content='Kevin Zuniga Cuellar' />
+        <meta property='og:description' content={description} />
+        <meta property='og:title' content={pageTitle} />
+        <meta property='og:image' content={profilePic} />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:site' content='@kevinzunigacuel' />
+        <meta name='twitter:title' content={pageTitle} />
+        <meta name='twitter:description' content={description} />
+        <meta name='twitter:image' content={profilePic} />
       </Head>
 
-      <section className='sm:flex sm:items-center sm:justify-between'>
+      <section className='py-10 sm:flex sm:items-center sm:justify-between'>
         <div className='max-w-sm sm:m-0 order-2'>
           <div className='relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden'>
             <Image
@@ -35,38 +43,33 @@ export default function Home({
           </div>
         </div>
         <div className='order-1'>
-          <header className='mt-4 mb-6 space-y-1'>
-            <h1 className='text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100'>
+          <header className='my-4 space-y-2'>
+            <h1 className='font-bold text-gray-900 tracking-tight text-3xl sm:text-4xl dark:text-white'>
               Kevin Zuniga Cuellar
             </h1>
-            <h2 className='max-w-lg leading-relaxed text-gray-900 dark:text-gray-300'>
+            <h2 className='max-w-lg leading-relaxed text-gray-800 dark:text-gray-300'>
               {role}
             </h2>
           </header>
-          <Text>{description}</Text>
+          <p className='w-full leading-relaxed text-gray-600 sm:max-w-sm md:max-w-xl dark:text-gray-400'>
+            {description}
+          </p>
         </div>
       </section>
-      <section className='mt-10'>
-        <h2 className='text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4'>
+      <section className='sm:py-8'>
+        <h1 className='mb-6 font-bold text-gray-800 text-3xl dark:text-white'>
           {postsTitle}
-        </h2>
-        <ListOfPosts blogPostsData={blogPostsData} />
+        </h1>
+        <Posts posts={posts} />
       </section>
     </>
   )
 }
 
 export async function getStaticProps({ locale }) {
-  const files = readPostsDirectory(locale)
-  const blogPostsData = []
-  files.forEach(filename => {
-    const fileData = readMarkdown(locale, filename)
-    const { data } = parseMarkdown(fileData)
-    blogPostsData.push(data)
-  })
-
   const homeDataLocale = homeData[locale]
+  const posts = getAllPosts(locale)
   return {
-    props: { blogPostsData, homeDataLocale },
+    props: { homeDataLocale, posts },
   }
 }

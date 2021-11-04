@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps }) {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <meta name='keywords' content='software, blog, developer, student' />
         <meta name='rating' content='General' />
-        <link rel='canonical' href='https://www.kevinzunigacuellar.com' />
         <meta name='author' content='Kevin Zuniga Cuellar' />
         <link
           rel='apple-touch-icon'
