@@ -1,6 +1,7 @@
-import Navbar from 'components/Layout/Navbar'
-import Body from 'components/Layout/Body'
-import Footer from 'components/Layout/Footer'
+import Navbar from 'layout/Navbar'
+import Body from 'layout/Body'
+import Footer from 'layout/Footer'
+
 export default function Layout({ children }) {
   return (
     <div className='flex flex-col min-h-screen items-stretch antialiased'>

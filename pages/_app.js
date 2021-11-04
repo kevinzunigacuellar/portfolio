@@ -1,5 +1,5 @@
 import 'tailwindcss/tailwind.css'
-import Layout from 'components/Layout'
+import Layout from 'layout'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
