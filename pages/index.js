@@ -14,8 +14,20 @@ export default function Home({
       <Head>
         <title>{pageTitle}</title>
         <meta name='description' content={description} />
-        <meta name='robots' content='index, follow' />
+        <meta name='robots' content='follow, index' />
         <meta name='googlebot' content='index,follow' />
+        <meta property='og:url' content='https://www.kevinzunigacuellar.com' />
+        <link rel='canonical' href='https://www.kevinzunigacuellar.com' />
+        <meta property='og:type' content='website' />
+        <meta property='og:site_name' content='Kevin Zuniga Cuellar' />
+        <meta property='og:description' content={description} />
+        <meta property='og:title' content={pageTitle} />
+        <meta property='og:image' content={profilePic} />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:site' content='@kevinzunigacuel' />
+        <meta name='twitter:title' content={pageTitle} />
+        <meta name='twitter:description' content={description} />
+        <meta name='twitter:image' content={profilePic} />
       </Head>
 
       <section className='py-10 sm:flex sm:items-center sm:justify-between'>

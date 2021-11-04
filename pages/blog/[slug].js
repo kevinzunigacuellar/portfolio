@@ -1,35 +1,50 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useMemo } from 'react'
+import { useRouter } from 'next/router'
+import DateFormater from 'components/DateFormater'
 import { getAllPostsPaths, getSinglePost } from 'lib/mdx'
 import { getMDXComponent } from 'mdx-bundler/client'
-import { useRouter } from 'next/router'
 
 function RoundedImage(props) {
   return <Image alt={props.alt} className='rounded-lg' {...props} />
 }
 
 export default function Post({ code, frontmatter }) {
-  const router = useRouter()
-  const { locale } = router
   const Component = useMemo(() => getMDXComponent(code), [code])
+  const router = useRouter()
   return (
     <>
       <Head>
         <title>{frontmatter.title}</title>
+        <meta name='description' content={frontmatter.description} />
+        <meta name='robots' content='follow, index' />
+        <meta
+          property='og:url'
+          content={`https://www.kevinzunigacuellar.com${router.asPath}`}
+        />
+        <link
+          rel='canonical'
+          href={`https://www.kevinzunigacuellar.com${router.asPath}`}
+        />
+        <meta property='og:type' content='website' />
+        <meta property='og:site_name' content='Kevin Zuniga Cuellar' />
+        <meta property='og:description' content={frontmatter.description} />
+        <meta property='og:title' content={frontmatter.title} />
+        <meta property='og:image' content={frontmatter.image} />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:site' content='@kevinzunigacuel' />
+        <meta name='twitter:title' content={frontmatter.title} />
+        <meta name='twitter:description' content={frontmatter.description} />
+        <meta name='twitter:image' content={frontmatter.image} />
+        <meta property='article:published_time' content={frontmatter.date} />
       </Head>
       <article className='py-10'>
         <header className='flex flex-col items-center'>
-          <p className='font-medium text-gray-500 dark:text-gray-400 py-1'>
-            <time dateTime={frontmatter.date}>
-              {new Date(frontmatter.date).toLocaleDateString(locale, {
-                month: 'long',
-                weekday: 'long',
-                day: 'numeric',
-                year: 'numeric',
-              })}
-            </time>
-          </p>
+          <DateFormater
+            date={frontmatter.date}
+            className='font-medium text-gray-500 dark:text-gray-400 py-1'
+          />
           <h1 className='font-bold text-center text-gray-900 tracking-tight text-3xl sm:text-4xl md:text-5xl dark:text-white'>
             {frontmatter.title}
           </h1>
