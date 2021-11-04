@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useMemo } from 'react'
 import { useRouter } from 'next/router'
 import DateFormater from 'components/DateFormater'
+import profilePic from 'public/img/me.jpg'
 import { getAllPostsPaths, getSinglePost } from 'lib/mdx'
 import { getMDXComponent } from 'mdx-bundler/client'
 
@@ -50,9 +51,10 @@ export default function Post({ code, frontmatter }) {
           </h1>
           <div className='flex items-center space-x-2 justify-center my-8'>
             <Image
-              src='/img/me.jpg'
+              src={profilePic}
               alt='Picture of the author'
               className='rounded-full'
+              placeholder='blur'
               width={40}
               height={40}
             />
