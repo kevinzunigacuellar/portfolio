@@ -13,6 +13,28 @@ module.exports = {
         '3/2': '130%',
       },
       typography: theme => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.700'),
+            a: {
+              color: theme('colors.blue.500'),
+              '&:hover': {
+                color: theme('colors.blue.700'),
+              },
+              code: { color: theme('colors.blue.400') },
+            },
+            pre: {
+              backgroundColor: theme('colors.gray.300'),
+              color: theme('colors.gray.800'),
+            },
+            thead: {
+              borderBottomColor: theme('colors.gray.200'),
+            },
+            code: { color: theme('colors.pink.500') },
+            'blockquote p:first-of-type::before': false,
+            'blockquote p:last-of-type::after': false,
+          },
+        },
         dark: {
           css: {
             color: theme('colors.gray.300'),
@@ -28,6 +50,7 @@ module.exports = {
             },
             pre: {
               backgroundColor: theme('colors.gray.700'),
+              color: theme('colors.gray.300'),
             },
             blockquote: {
               borderLeftColor: theme('colors.gray.700'),

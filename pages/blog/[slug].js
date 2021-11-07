@@ -6,9 +6,50 @@ import DateFormater from 'components/DateFormater'
 import profilePic from 'public/img/me.jpg'
 import { getAllPostsPaths, getSinglePost } from 'lib/mdx'
 import { getMDXComponent } from 'mdx-bundler/client'
+import { useState } from 'react'
 
 function RoundedImage(props) {
   return <Image alt={props.alt} className='rounded-lg' {...props} />
+}
+
+function Code({ children }) {
+  const [copyText, setCopyText] = useState(false)
+  const copyCode = async () => {
+    await navigator.clipboard.writeText(children.props.children)
+    setCopyText(true)
+    setTimeout(() => {
+      setCopyText(false)
+    }, 1000)
+  }
+
+  return (
+    <div className='relative'>
+      <pre>{children}</pre>
+      <button
+        className='bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-800 hover:bg-gray-500 text-gray-100 p-1.5 rounded-md focus:outline-none focus:shadow-outline absolute top-0 right-0 transform -translate-x-1.5 translate-y-1.5'
+        type='submit'
+        onClick={copyCode}>
+        <svg className='h-5 w-5 stroke-current' fill='none' viewBox='0 0 24 24'>
+          {!copyText ? (
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2}
+              d='M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z'
+            />
+          ) : (
+            <path
+              className='dark:text-green-500 text-green-400'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth={2}
+              d='M5 13l4 4L19 7'
+            />
+          )}
+        </svg>
+      </button>
+    </div>
+  )
 }
 
 export default function Post({ code, frontmatter }) {
@@ -82,7 +123,7 @@ export default function Post({ code, frontmatter }) {
           />
         </div>
         <div className='py-6 prose max-w-none prose-blue md:prose-lg dark:prose-dark'>
-          <Component components={{ Image: RoundedImage }} />
+          <Component components={{ Image: RoundedImage, pre: Code }} />
         </div>
       </article>
     </>
