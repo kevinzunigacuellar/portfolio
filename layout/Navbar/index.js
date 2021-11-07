@@ -27,7 +27,7 @@ export default function Navbar() {
     setDark(prevState => !prevState)
   }
   return (
-    <header className='bg-gray-100 dark:bg-gray-800 transition-colors'>
+    <header className='transition-colors sticky top-0 z-10 backdrop-filter backdrop-blur-md'>
       <div className='mx-auto px-6 sm:pl-4 sm:flex sm:items-center sm:justify-between pt-8 pb-4 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl'>
         <div className='flex items-center justify-between order-last'>
           <div className='sm:hidden'>
@@ -60,7 +60,7 @@ export default function Navbar() {
           </div>
           <div className='flex items-center'>
             <button
-              className='p-1.5 mr-3 text-gray-500 dark:text-gray-300 bg-gray-300 dark:bg-gray-700 rounded-md focus:outline-none focus:ring-2 ring-indigo-300 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-800'
+              className='p-1.5 mr-3 text-gray-500 dark:text-gray-300 bg-white shadow dark:bg-gray-700 rounded-md focus:outline-none focus:ring-2 ring-indigo-300 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-800'
               onClick={handleToggleDarkTheme}
               aria-label='toggle dark and light theme'>
               <svg
@@ -91,13 +91,13 @@ export default function Navbar() {
         <nav
           className={`${
             open ? 'block' : 'hidden'
-          } pt-2 pb-4 sm:flex sm:p-0 sm:space-x-2 border-b sm:border-0`}>
+          } pt-2 pb-4 sm:flex sm:p-0 sm:space-x-2`}>
           <Link href='/' key='/'>
             <a
               className={`${
                 pathname === '/'
                   ? 'text-indigo-500 dark:text-indigo-400'
-                  : 'text-gray-500 dark:text-gray-400'
+                  : 'text-gray-600 dark:text-gray-400'
               } block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:text-indigo-500 dark:hover:bg-gray-900 rounded-md transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {NAVIGATION.home[locale]}
@@ -108,7 +108,7 @@ export default function Navbar() {
               className={`${
                 pathname.includes('/about')
                   ? 'text-indigo-500 dark:text-indigo-400'
-                  : 'text-gray-500 dark:text-gray-400'
+                  : 'text-gray-600 dark:text-gray-400'
               } mt-1 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:text-indigo-500 dark:hover:bg-gray-900 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {NAVIGATION.about[locale]}
@@ -119,7 +119,7 @@ export default function Navbar() {
               className={`${
                 pathname.includes('/blog')
                   ? 'text-indigo-500 dark:text-indigo-400'
-                  : 'text-gray-500 dark:text-gray-400'
+                  : 'text-gray-600 dark:text-gray-400'
               } mt-1 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:text-indigo-500 dark:hover:bg-gray-900 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               Blog
@@ -130,7 +130,7 @@ export default function Navbar() {
               className={`${
                 pathname.includes('/bookshelf')
                   ? 'text-indigo-500 dark:text-indigo-400'
-                  : 'text-gray-500 dark:text-gray-400'
+                  : 'text-gray-600 dark:text-gray-400'
               } mt-1 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:text-indigo-500 dark:hover:bg-gray-900 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
               onClick={handleMenuExpand}>
               {NAVIGATION.bookshelf[locale]}
