@@ -13,8 +13,7 @@ export default function Posts({ posts }) {
                 <Image
                   src={frontmatter.image}
                   alt={frontmatter.title}
-                  className='absolute w-full h-full object-cover'
-                  priority={true}
+                  className='absolute w-full h-full object-cover filter group-hover:brightness-75 transition'
                   layout='fill'
                 />
               </div>
@@ -24,7 +23,7 @@ export default function Posts({ posts }) {
                 </h2>
                 <DateFormater
                   date={frontmatter.date}
-                  className='text-xs font-semibold text-gray-500 tracking-wide uppercase dark:text-gray-400 group-hover:underline'
+                  className='text-xs font-semibold text-gray-500 tracking-wide uppercase dark:text-gray-400'
                 />
                 <p className='text-gray-500 dark:text-gray-400 py-2'>
                   {frontmatter.description}

@@ -85,7 +85,7 @@ module.exports = {
     },
   },
   variants: {
-    extend: { typography: ['dark'] },
+    extend: { typography: ['dark'], brightness: ['group-hover'] },
   },
   plugins: [require('@tailwindcss/typography')],
 }
