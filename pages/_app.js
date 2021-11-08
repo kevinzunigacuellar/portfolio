@@ -1,5 +1,6 @@
 import 'tailwindcss/tailwind.css'
 import Layout from 'layout'
+import { UserProvider } from '@auth0/nextjs-auth0'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
@@ -44,7 +45,9 @@ function MyApp({ Component, pageProps }) {
           href='/logo/favicon-16x16.png'
         />
       </Head>
-      <Component {...pageProps} />
+      <UserProvider>
+        <Component {...pageProps} />
+      </UserProvider>
     </Layout>
   )
 }
