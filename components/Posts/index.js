@@ -23,9 +23,9 @@ export default function Posts({ posts }) {
                 </h2>
                 <DateFormater
                   date={frontmatter.date}
-                  className='text-xs font-semibold text-gray-500 tracking-wide uppercase dark:text-gray-400'
+                  className='text-xs font-semibold text-gray-600 tracking-wide uppercase dark:text-gray-400'
                 />
-                <p className='text-gray-500 dark:text-gray-400 py-2'>
+                <p className='text-gray-600 dark:text-gray-400 py-2'>
                   {frontmatter.description}
                 </p>
               </div>
