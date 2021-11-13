@@ -11,7 +11,7 @@ export default function Footer() {
   const { locale } = router
 
   return (
-    <footer className='bg-gray-200 flex-shrink-0 border-t border-gray-300 dark:bg-gray-900 dark:border-gray-500 transition-all'>
+    <footer className='bg-gray-200 flex-shrink-0 dark:bg-gray-900 transition-all'>
       <div className='mx-auto py-4 px-6 sm:max-w-2xl md:max-w-3xl lg:max-w-4xl'>
         <div className='flex flex-col sm:flex-row sm:justify-around'>
           <div className='flex flex-col space-y-5 sm:w-auto'>
