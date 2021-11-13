@@ -23,7 +23,7 @@ export default function Posts({ posts }) {
                 </h2>
                 <DateFormater
                   date={frontmatter.date}
-                  className='text-xs font-semibold text-gray-600 tracking-wide uppercase dark:text-gray-400'
+                  className='text-sm text-gray-600 dark:text-gray-400'
                 />
                 <p className='text-gray-600 dark:text-gray-400 py-2'>
                   {frontmatter.description}
