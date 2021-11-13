@@ -23,10 +23,10 @@ function Code({ children }) {
   }
 
   return (
-    <div className='relative'>
+    <div className='relative group'>
       <pre>{children}</pre>
       <button
-        className='bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-800 hover:bg-gray-500 text-gray-100 p-1.5 rounded-md focus:outline-none focus:shadow-outline absolute top-0 right-0 transform -translate-x-1.5 translate-y-1.5'
+        className='invisible group-hover:visible bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-800 hover:bg-gray-600 text-gray-50 p-1.5 rounded-md focus:outline-none focus:shadow-outline absolute top-0 right-0 transform -translate-x-1.5 translate-y-1.5'
         type='submit'
         onClick={copyCode}>
         <svg className='h-5 w-5 stroke-current' fill='none' viewBox='0 0 24 24'>
