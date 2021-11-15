@@ -1,10 +1,16 @@
 {
   "en": {
     "pageTitle": "About - Kevin Zuniga Cuellar",
-    "pageProjects": "About me"
+    "pageProjects": "About me",
+    "gifindDescription":"A web application that helps you find your favorite gifs developed with the Giphy API.",
+    "hotelManantialDescription":"A web application that showcases the hotel amenities and exclusive services."
+    
   },
   "es": {
     "pageTitle": "Acerca - Kevin Zuniga Cuellar",
-    "pageProjects": "Acerca de mí"
+    "pageProjects": "Acerca de mí",
+    "gifindDescription":"Una aplicación web que te ayuda a encontrar tus GIF favoritos, desarrollada con la API de Giphy.",
+    "hotelManantialDescription":"Una aplicación web que muestra las comodidades y servicios que ofrece el hotel Manantial."
+
   }
 }

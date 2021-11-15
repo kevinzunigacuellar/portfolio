@@ -87,7 +87,7 @@ module.exports = {
   variants: {
     extend: {
       typography: ['dark'],
-      brightness: ['group-hover'],
+      brightness: ['group-hover', 'hover'],
       visibility: ['group-hover'],
     },
   },
