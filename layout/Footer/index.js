@@ -22,7 +22,7 @@ export default function Footer() {
                 target='_blank'
                 aria-label='Visit my Github'
                 rel='noreferrer'>
-                <Github />
+                <Github className='w-6 h-auto fill-current text-gray-400 hover:text-gray-800 dark:text-gray-100 stroke-current bg-white dark:bg-gray-800 dark:hover:bg-gray-700 rounded-full' />
               </a>
               <a
                 href='https://www.linkedin.com/in/kevinzunigacuellar/'
