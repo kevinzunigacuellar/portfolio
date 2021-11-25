@@ -6,7 +6,7 @@ export default function Book({ img, title, author, year, comment }) {
   const { locale } = router
 
   return (
-    <article className='max-w-md md:max-w-4xl bg-white rounded-lg shadow overflow-hidden dark:bg-gray-900 dark:border-gray-500 transition-colors'>
+    <article className='max-w-md md:max-w-5xl bg-white rounded-lg shadow overflow-hidden dark:bg-gray-900 dark:border-gray-500 transition-colors'>
       <div className='md:flex'>
         <div className='max-w-md'>
           <div className='relative pb-3/2 md:w-60'>
