@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Posts from 'components/Posts'
+import Card from 'components/Card'
 import { getAllPosts } from 'lib/mdx'
 import blogImage from 'public/img/blog-img.png'
 
@@ -39,7 +39,18 @@ export default function Blog({ posts }) {
       <h1 className='text-3xl font-bold text-gray-900 tracking-tight sm:text-4xl md:text-5xl dark:text-white py-10'>
         Blog
       </h1>
-      <Posts posts={posts} />
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+        {posts.map(({ frontmatter, slug }) => (
+          <Card
+            key={slug}
+            title={frontmatter.title}
+            image={frontmatter.image}
+            description={frontmatter.description}
+            date={frontmatter.date}
+            url={`/blog/${slug}`}
+          />
+        ))}
+      </div>
     </>
   )
 }

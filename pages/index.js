@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Head from 'next/head'
 import profilePic from 'public/img/me.jpg'
 import homeData from 'data/homeData'
-import Posts from 'components/Posts'
+import Card from 'components/Card'
 import { getAllPosts } from 'lib/mdx'
 
 export default function Home({
@@ -57,10 +57,21 @@ export default function Home({
         </div>
       </section>
       <section className='sm:py-8'>
-        <h1 className='mb-6 font-bold text-gray-800 text-3xl dark:text-white'>
+        <h1 className='mb-6 font-bold tracking-tight text-gray-800 text-3xl dark:text-white'>
           {postsTitle}
         </h1>
-        <Posts posts={posts} />
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+          {posts.map(({ frontmatter, slug }) => (
+            <Card
+              key={slug}
+              title={frontmatter.title}
+              image={frontmatter.image}
+              description={frontmatter.description}
+              date={frontmatter.date}
+              url={`/blog/${slug}`}
+            />
+          ))}
+        </div>
       </section>
     </>
   )

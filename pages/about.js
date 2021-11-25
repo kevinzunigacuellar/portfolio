@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import aboutData from 'data/aboutData.json'
-import ProjectCard from 'components/ProjectCard'
+import Card from 'components/Card'
 import gifindImage from 'public/img/gifind.png'
 import HotelManantialImage from 'public/img/hotelmanantialchurin.png'
 
@@ -13,20 +13,18 @@ export default function About({ aboutDataLocale }) {
       <h1 className='text-3xl tracking-tight sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 py-10'>
         {aboutDataLocale.pageProjects}
       </h1>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 pb-6'>
-        <ProjectCard
-          imgSrc={gifindImage}
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+        <Card
           title='Gifind'
+          image={gifindImage}
           description={aboutDataLocale.gifindDescription}
-          url='/projects/gifind'
-          projectUrl='https://gifind.vercel.app/'
+          url={'/project/gifind'}
         />
-        <ProjectCard
-          imgSrc={HotelManantialImage}
-          title='Hotel Manatial'
+        <Card
+          title='Hotel Manantial'
+          image={HotelManantialImage}
           description={aboutDataLocale.hotelManantialDescription}
-          url='/projects/hotelmanantial'
-          projectUrl='https://www.hotelmanantialchurin.com/'
+          url={'/project/hotelmanantial'}
         />
       </div>
     </>
