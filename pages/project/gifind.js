@@ -1,3 +1,3 @@
-export default function gifind() {
+export default function Gifind() {
   return <div>Gifind - Page</div>
 }
