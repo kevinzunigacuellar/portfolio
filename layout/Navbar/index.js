@@ -91,7 +91,7 @@ export default function Navbar() {
         <nav
           className={`${
             open ? 'block' : 'hidden'
-          } pt-2 pb-4 sm:flex sm:p-0 sm:space-x-2`}>
+          } pt-6 sm:flex sm:p-0 sm:space-x-2`}>
           <Link href='/' key='/'>
             <a
               className={`${
