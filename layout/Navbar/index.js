@@ -27,8 +27,8 @@ export default function Navbar() {
     setDark(prevState => !prevState)
   }
   return (
-    <header className='transition-colors sticky top-0 z-10 backdrop-filter backdrop-blur-md'>
-      <div className='mx-auto p-6 sm:pl-4 sm:flex sm:items-center sm:justify-between sm:max-w-2xl md:max-w-3xl lg:max-w-4xl border-b dark:border-gray-700 border-gray-200'>
+    <header className='transition-colors sticky top-0 z-10 backdrop-filter backdrop-blur-md border-b dark:border-gray-700 border-gray-200'>
+      <div className='mx-auto p-6 sm:pl-4 sm:flex sm:items-center sm:justify-between lg:max-w-5xl'>
         <div className='flex items-center justify-between order-last'>
           <div className='sm:hidden'>
             <button
