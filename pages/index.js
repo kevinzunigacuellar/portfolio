@@ -1,35 +1,16 @@
 import Image from 'next/image'
-import Head from 'next/head'
+import Container from 'components/Container'
 import profilePic from 'public/img/me.jpg'
-import homeData from 'data/homeData'
+import homeData from 'data/home'
 import Card from 'components/Card'
 import { getAllPosts } from 'lib/mdx'
 
-export default function Home({
-  homeDataLocale: { description, pageTitle, role, postsTitle },
-  posts,
-}) {
+export default function Home({ home, posts }) {
   return (
-    <>
-      <Head>
-        <title>{pageTitle}</title>
-        <meta name='description' content={description} />
-        <meta name='robots' content='follow, index' />
-        <meta name='googlebot' content='index,follow' />
-        <meta property='og:url' content='https://www.kevinzunigacuellar.com' />
-        <link rel='canonical' href='https://www.kevinzunigacuellar.com' />
-        <meta property='og:type' content='website' />
-        <meta property='og:site_name' content='Kevin Zuniga Cuellar' />
-        <meta property='og:description' content={description} />
-        <meta property='og:title' content={pageTitle} />
-        <meta property='og:image' content={profilePic} />
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:site' content='@kevinzunigacuel' />
-        <meta name='twitter:title' content={pageTitle} />
-        <meta name='twitter:description' content={description} />
-        <meta name='twitter:image' content={profilePic} />
-      </Head>
-
+    <Container
+      title={home.pageTitle}
+      description={home.description}
+      image='/img/me.jpg'>
       <section className='py-10 sm:flex sm:items-center sm:justify-between'>
         <div className='max-w-sm sm:m-0 order-2'>
           <div className='relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden'>
@@ -48,17 +29,17 @@ export default function Home({
               Kevin Zuniga Cuellar
             </h1>
             <h2 className='max-w-lg leading-relaxed text-gray-800 dark:text-gray-300'>
-              {role}
+              {home.role}
             </h2>
           </header>
           <p className='w-full leading-relaxed text-gray-600 sm:max-w-sm md:max-w-xl dark:text-gray-400'>
-            {description}
+            {home.description}
           </p>
         </div>
       </section>
       <section className='sm:py-8'>
         <h1 className='mb-6 font-bold tracking-tight text-gray-800 text-3xl dark:text-white'>
-          {postsTitle}
+          {home.postsTitle}
         </h1>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
           {posts.map(({ frontmatter, slug }) => (
@@ -73,14 +54,14 @@ export default function Home({
           ))}
         </div>
       </section>
-    </>
+    </Container>
   )
 }
 
 export async function getStaticProps({ locale }) {
-  const homeDataLocale = homeData[locale]
+  const home = homeData[locale]
   const posts = getAllPosts(locale)
   return {
-    props: { homeDataLocale, posts },
+    props: { home, posts },
   }
 }

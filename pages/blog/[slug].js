@@ -1,8 +1,7 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import { useMemo } from 'react'
-import { useRouter } from 'next/router'
 import DateFormater from 'components/DateFormater'
+import Container from 'components/Container'
 import profilePic from 'public/img/me.jpg'
 import { getAllPostsPaths, getSinglePost } from 'lib/mdx'
 import { getMDXComponent } from 'mdx-bundler/client'
@@ -54,33 +53,12 @@ function Code({ children }) {
 
 export default function Post({ code, frontmatter }) {
   const Component = useMemo(() => getMDXComponent(code), [code])
-  const router = useRouter()
   return (
-    <>
-      <Head>
-        <title>{frontmatter.title}</title>
-        <meta name='description' content={frontmatter.description} />
-        <meta name='robots' content='follow, index' />
-        <meta
-          property='og:url'
-          content={`https://www.kevinzunigacuellar.com${router.asPath}`}
-        />
-        <link
-          rel='canonical'
-          href={`https://www.kevinzunigacuellar.com${router.asPath}`}
-        />
-        <meta property='og:type' content='website' />
-        <meta property='og:site_name' content='Kevin Zuniga Cuellar' />
-        <meta property='og:description' content={frontmatter.description} />
-        <meta property='og:title' content={frontmatter.title} />
-        <meta property='og:image' content={frontmatter.image} />
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:site' content='@kevinzunigacuel' />
-        <meta name='twitter:title' content={frontmatter.title} />
-        <meta name='twitter:description' content={frontmatter.description} />
-        <meta name='twitter:image' content={frontmatter.image} />
-        <meta property='article:published_time' content={frontmatter.date} />
-      </Head>
+    <Container
+      title={frontmatter.title}
+      description={frontmatter.description}
+      image={frontmatter.image}
+      date={frontmatter.date}>
       <article className='py-10'>
         <header className='flex flex-col items-center'>
           <DateFormater
@@ -126,7 +104,7 @@ export default function Post({ code, frontmatter }) {
           <Component components={{ Image: RoundedImage, pre: Code }} />
         </div>
       </article>
-    </>
+    </Container>
   )
 }
 
