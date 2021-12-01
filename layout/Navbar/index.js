@@ -136,6 +136,17 @@ export default function Navbar() {
               {NAVIGATION.bookshelf[locale]}
             </a>
           </Link>
+          <Link href='/guestbook' key='/guestbook'>
+            <a
+              className={`${
+                pathname.includes('/guestbook')
+                  ? 'text-indigo-600 dark:text-indigo-400'
+                  : 'text-gray-600 dark:text-gray-400'
+              } mt-1 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:text-indigo-500 dark:hover:bg-gray-900 rounded-md sm:mt-0 transition ease-out duration-200 focus:outline-none`}
+              onClick={handleMenuExpand}>
+              {NAVIGATION.guestbook[locale]}
+            </a>
+          </Link>
         </nav>
       </div>
     </header>

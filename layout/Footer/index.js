@@ -40,7 +40,7 @@ export default function Footer() {
               </a>
             </address>
           </div>
-          <nav className='flex flex-col py-2 sm:w-auto sm:max-w-md'>
+          <nav className='grid grid-cols-1 sm:grid-cols-2 gap-x-20 py-2 sm:w-auto sm:max-w-md'>
             <Link href='/'>
               <a className='py-2 cursor-pointer antialiased font-semibold text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
                 {NAVIGATION.home[locale]}
@@ -59,6 +59,11 @@ export default function Footer() {
             <Link href='/bookshelf'>
               <a className='py-2 cursor-pointer antialiased font-semibold text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
                 {NAVIGATION.bookshelf[locale]}
+              </a>
+            </Link>
+            <Link href='/guestbook'>
+              <a className='py-2 cursor-pointer antialiased font-semibold text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-300'>
+                {NAVIGATION.guestbook[locale]}
               </a>
             </Link>
           </nav>

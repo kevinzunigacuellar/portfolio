@@ -10,5 +10,10 @@
   "bookshelf": {
     "en": "Bookshelf",
     "es": "Biblioteca"
+  },
+  "guestbook": {
+    "en": "Guestbook",
+    "es": "Libro de visitas"
   }
+
 }
