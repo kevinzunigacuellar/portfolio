@@ -13,11 +13,6 @@ datasource db {
   referentialIntegrity = "prisma"
 }
 
-model views {
-  slug  String @id @db.VarChar(128)
-  count Int    @default(1)
-}
-
 model guestbook {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
