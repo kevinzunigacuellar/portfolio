@@ -21,10 +21,10 @@ export default function Card({ title, description, image, date, url }) {
           {date && (
             <DateFormater
               date={date}
-              className='text-sm text-gray-600 dark:text-gray-400'
+              className='block text-sm text-gray-600 dark:text-gray-400 my-1'
             />
           )}
-          <p className='text-gray-600 dark:text-gray-400 py-2'>{description}</p>
+          <p className='text-gray-600 dark:text-gray-400 my-3'>{description}</p>
         </div>
       </a>
     </Link>

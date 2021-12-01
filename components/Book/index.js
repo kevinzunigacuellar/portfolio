@@ -27,9 +27,9 @@ export default function Book({ img, title, author, year, comment }) {
             <span className='text-gray-500 dark:text-gray-400'>&middot;</span>{' '}
             <span className='text-gray-500 dark:text-gray-400'>{year}</span>
           </p>
-          <q className='text-gray-500 leading-relaxed dark:text-gray-400'>
+          <p className='text-gray-500 pt-2 leading-relaxed dark:text-gray-400'>
             {comment[locale]}
-          </q>
+          </p>
         </div>
       </div>
     </article>
