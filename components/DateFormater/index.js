@@ -1,17 +1,20 @@
 import { useRouter } from 'next/router'
 
-export default function DateFormater(props) {
+export default function DateFormater({ className, date, format }) {
   const router = useRouter()
   const { locale } = router
 
   return (
-    <time dateTime={props.date} {...props}>
-      {new Date(props.date).toLocaleDateString(locale, {
-        month: 'long',
-        weekday: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      })}
+    <time dateTime={date} className={className || ''}>
+      {new Date(date).toLocaleDateString(
+        locale,
+        format || {
+          month: 'long',
+          weekday: 'long',
+          day: 'numeric',
+          year: 'numeric',
+        }
+      )}
     </time>
   )
 }
