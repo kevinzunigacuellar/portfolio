@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     case 'GET':
       try {
         const guestbook = await prisma.guestbook.findMany({
-          take: parseInt(query.limit) || 10,
+          take: parseInt(query.limit) || 50,
           skip: parseInt(query.offset) || 0,
           select: {
             id: true,
