@@ -28,7 +28,7 @@ export default function Home({ home, posts }) {
             <h1 className='font-bold text-gray-900 tracking-tight text-3xl sm:text-4xl dark:text-white'>
               Kevin Zuniga Cuellar
             </h1>
-            <h2 className='max-w-lg leading-relaxed text-gray-800 dark:text-gray-300'>
+            <h2 className='py-1 max-w-lg leading-relaxed text-gray-800 dark:text-gray-300'>
               {home.role}
             </h2>
           </header>
