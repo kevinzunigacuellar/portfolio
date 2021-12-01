@@ -1,0 +1,18 @@
+-- CreateTable
+CREATE TABLE `views` (
+    `slug` VARCHAR(128) NOT NULL,
+    `count` INTEGER NOT NULL DEFAULT 1,
+
+    PRIMARY KEY (`slug`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `guestbook` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `message` VARCHAR(500) NOT NULL,
+    `author` VARCHAR(255) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
