@@ -21,7 +21,7 @@ export default async function handler(req, res) {
         })
         res.status(200).json(guestbook)
       } catch (error) {
-        res.status(500).json({ error })
+        res.status(500).json({ error: 'Error fetching posts' })
       }
       break
     default:
