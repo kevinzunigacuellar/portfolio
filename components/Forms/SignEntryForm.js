@@ -26,7 +26,7 @@ export default function SignEntry() {
         />
         <button
           type='submit'
-          className='block px-10 hover:bg-indigo-200 dark:text-gray-100 bg-indigo-100 transition-colors border border-indigo-300 dark:border-gray-500 rounded-lg py-2 font-semibold text-indigo-700 dark:bg-gray-800  dark:hover:bg-gray-700'>
+          className='block px-10 hover:border-indigo-400 hover:bg-indigo-200 dark:text-gray-100 bg-indigo-100 transition-colors border border-indigo-300 dark:border-gray-500 rounded-lg py-2 font-semibold text-indigo-700 dark:bg-gray-900 dark:hover:border-gray-300'>
           Sign
         </button>
       </Form>
