@@ -3,18 +3,17 @@ import GuestbookEntries from 'components/GuestBookEntries'
 import SignEntryForm from 'components/Forms/SignEntryForm'
 import { useUser } from '@auth0/nextjs-auth0'
 import Link from 'next/link'
+import Title from 'components/Title'
 
 export default function Guestbook() {
   const { user, loading } = useUser()
   return (
     <Container title='Guestbook' description='this is a guestbook' image=''>
-      <h1 className='text-3xl tracking-tight sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 py-10'>
-        Guestbook
-      </h1>
-      <p className='pb-6 w-full leading-relaxed text-gray-600 md:max-w-xl dark:text-gray-400'>
+      <Title>Guestbook</Title>
+      <p className='w-full leading-relaxed text-gray-600 md:max-w-xl dark:text-gray-400'>
         Welcome to my guestbook! Feel free to leave a comment below.
       </p>
-      <div className='p-6 bg-indigo-50 rounded-lg border border-indigo-200 mb-6 dark:bg-indigo-900 dark:border-indigo-600 transition-colors'>
+      <div className='mt-6 p-6 bg-indigo-50 rounded-lg border border-indigo-200 mb-6 dark:bg-indigo-900 dark:border-indigo-600 transition-colors'>
         <h2 className='font-semibold text-xl text-gray-900 dark:text-gray-100'>
           Sign the Guestbook
         </h2>

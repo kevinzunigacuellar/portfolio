@@ -23,25 +23,25 @@ export default function Home({ home, posts }) {
             />
           </div>
         </div>
-        <div className='order-1'>
-          <header className='my-4 space-y-2'>
-            <h1 className='font-bold text-gray-900 tracking-tight text-3xl sm:text-4xl dark:text-white'>
+        <header>
+          <div className='my-4'>
+            <h1 className='font-bold mb-2 text-gray-900 tracking-tight text-3xl sm:text-4xl dark:text-white'>
               Kevin Zuniga Cuellar
             </h1>
             <h2 className='py-1 max-w-lg leading-relaxed text-gray-800 dark:text-gray-300'>
               {home.role}
             </h2>
-          </header>
+          </div>
           <p className='w-full leading-relaxed text-gray-600 sm:max-w-sm md:max-w-xl dark:text-gray-400'>
             {home.description}
           </p>
-        </div>
+        </header>
       </section>
       <section className='sm:py-8'>
-        <h1 className='mb-6 font-bold tracking-tight text-gray-800 text-3xl dark:text-white'>
+        <h3 className='font-bold text-3xl tracking-tight mb-8 text-black dark:text-white'>
           {home.postsTitle}
-        </h1>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+        </h3>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
           {posts.map(({ frontmatter, slug }) => (
             <Card
               key={slug}
