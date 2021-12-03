@@ -1,4 +1,7 @@
 const fromApitoResponseCurrentSong = apiResponse => {
+  if (!apiResponse.isPlaying) {
+    return apiResponse
+  }
   const {
     name: songName,
     artists: artistsData,
