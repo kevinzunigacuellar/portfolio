@@ -24,7 +24,7 @@ export default function Guestbook() {
         {user ? (
           <SignEntryForm />
         ) : (
-          <Link href='/api/auth/login'>
+          <Link href='/api/auth/login?returnTo=/guestbook' locale={false}>
             <a className='inline-block px-8 hover:bg-indigo-200 dark:text-gray-100 bg-indigo-100 transition-colors border border-indigo-300 dark:border-gray-500 rounded-lg py-2 font-semibold text-indigo-700 dark:bg-gray-800  dark:hover:bg-gray-700'>
               Login
             </a>
