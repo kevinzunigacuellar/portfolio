@@ -48,7 +48,7 @@ export default function Navbar() {
           </div>
           <div className='flex items-center'>
             <button
-              className='p-1.5 mr-3 text-gray-500 dark:text-gray-300 bg-white shadow-sm dark:bg-gray-700 rounded-md focus:outline-none focus:ring-2 ring-indigo-300 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-800'
+              className='p-1.5 mr-3 border dark:border-gray-500 hover:border-gray-300 dark:hover:border-gray-400 text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 ring-indigo-300 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-800'
               onClick={handleToggleDarkTheme}
               aria-label='toggle dark theme'>
               {dark ? (
@@ -68,9 +68,9 @@ export default function Navbar() {
             <a
               className={`${
                 pathname === '/'
-                  ? 'bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-200'
+                  ? 'bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-200 opacity-100'
                   : 'text-gray-600 dark:text-gray-400'
-              } block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg transition ease-out duration-200 focus:outline-none`}
+              } block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg transition ease-out duration-200 focus:outline-none opacity-90`}
               onClick={handleMenuExpand}>
               {NAVIGATION.home[locale]}
             </a>
@@ -79,9 +79,9 @@ export default function Navbar() {
             <a
               className={`${
                 pathname.includes('/about')
-                  ? 'bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-200'
+                  ? 'bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-200 opacity-100'
                   : 'text-gray-600 dark:text-gray-400'
-              } mt-1 sm:mt-0 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg transition ease-out duration-200 focus:outline-none`}
+              } mt-1 sm:mt-0 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg transition ease-out duration-200 focus:outline-none opacity-90`}
               onClick={handleMenuExpand}>
               {NAVIGATION.about[locale]}
             </a>
@@ -90,9 +90,9 @@ export default function Navbar() {
             <a
               className={`${
                 pathname.includes('/blog')
-                  ? 'bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-200'
+                  ? 'bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-200 opacity-100'
                   : 'text-gray-600 dark:text-gray-400'
-              } mt-1 sm:mt-0 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg transition ease-out duration-200 focus:outline-none`}
+              } mt-1 sm:mt-0 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg transition ease-out duration-200 focus:outline-none opacity-90`}
               onClick={handleMenuExpand}>
               Blog
             </a>
@@ -101,9 +101,9 @@ export default function Navbar() {
             <a
               className={`${
                 pathname.includes('/bookshelf')
-                  ? 'bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-200'
+                  ? 'bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-200 opacity-100'
                   : 'text-gray-600 dark:text-gray-400'
-              } mt-1 sm:mt-0 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg transition ease-out duration-200 focus:outline-none`}
+              } mt-1 sm:mt-0 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg transition ease-out duration-200 focus:outline-none opacity-90`}
               onClick={handleMenuExpand}>
               {NAVIGATION.bookshelf[locale]}
             </a>
@@ -112,9 +112,9 @@ export default function Navbar() {
             <a
               className={`${
                 pathname.includes('/guestbook')
-                  ? 'bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-200'
+                  ? 'bg-gray-200 dark:bg-gray-900 text-gray-900 dark:text-gray-200 opacity-100'
                   : 'text-gray-600 dark:text-gray-400'
-              } mt-1 sm:mt-0 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg transition ease-out duration-200 focus:outline-none`}
+              } mt-1 sm:mt-0 block py-1.5 px-3 font-semibold hover:bg-gray-200 dark:hover:bg-gray-900 rounded-lg transition ease-out duration-200 focus:outline-none opacity-90`}
               onClick={handleMenuExpand}>
               {NAVIGATION.guestbook[locale]}
             </a>
