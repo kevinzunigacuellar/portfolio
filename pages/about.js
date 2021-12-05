@@ -7,18 +7,10 @@ import Title from 'components/Title'
 
 export default function About({ about }) {
   return (
-    <Container
-      title={about.pageTitle}
-      description={about.description}
-      image='/img/me.jpg'>
+    <Container title={about.pageTitle} description={about.description} image='/img/me.jpg'>
       <Title>{about.title}</Title>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
-        <Card
-          title='Gifind'
-          image={gifindImage}
-          description={about.gifindDescription}
-          url={'/project/gifind'}
-        />
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10'>
+        <Card title='Gifind' image={gifindImage} description={about.gifindDescription} url={'/project/gifind'} />
         <Card
           title='Hotel Manantial'
           image={HotelManantialImage}
