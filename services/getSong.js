@@ -1,5 +1,7 @@
+import axios from 'axios'
+
 const fromApitoResponseCurrentSong = apiResponse => {
-  if (!apiResponse.isPlaying) {
+  if (apiResponse.isPlaying === false) {
     return apiResponse
   }
   const {
@@ -14,8 +16,9 @@ const fromApitoResponseCurrentSong = apiResponse => {
 }
 
 export const getSong = async url => {
-  const data = await fetch(url)
-    .then(res => res.json())
+  const data = await axios
+    .get(url)
+    .then(res => res.data)
     .then(fromApitoResponseCurrentSong)
   return data
 }
