@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className='bg-gray-200 flex-shrink-0 dark:bg-gray-900 transition-all'>
       <div className='mx-auto py-4 px-6 lg:max-w-5xl'>
-        <div className='flex flex-col sm:flex-row sm:justify-around'>
+        <div className='flex flex-col sm:flex-row sm:justify-around sm:gap-6'>
           <div className='flex flex-col space-y-5 sm:w-auto'>
             <SpotifyPlayer />
             <address className='flex space-x-5 text-gray-400 dark:text-gray-400'>

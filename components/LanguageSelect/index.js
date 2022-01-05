@@ -23,20 +23,13 @@ export default function LanguageSelect() {
     <div className='w-20'>
       <Listbox value={selected} onChange={onSelectChange}>
         <div className='relative z-10'>
-          <Listbox.Button className='relative w-full py-1.5 pl-3 pr-2 text-left border dark:border-gray-500 hover:border-gray-300 dark:hover:border-gray-400 bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md focus:outline-none focus:ring-2 ring-indigo-300 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-800'>
+          <Listbox.Button className='relative w-full py-1.5 pl-3 pr-2 text-left border dark:border-gray-500 hover:border-gray-300 dark:hover:border-gray-400 bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md focus:outline-none focus:ring-2 ring-indigo-300 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-800 dark:focus:ring-indigo-600'>
             <span className='block'>{router.locale}</span>
             <span className='absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'>
-              <SelectorIcon
-                className='w-5 h-5 text-gray-400 dark:text-gray-300'
-                aria-hidden='true'
-              />
+              <SelectorIcon className='w-5 h-5 text-gray-400 dark:text-gray-300' aria-hidden='true' />
             </span>
           </Listbox.Button>
-          <Transition
-            as={Fragment}
-            leave='transition ease-in duration-100'
-            leaveFrom='opacity-100'
-            leaveTo='opacity-0'>
+          <Transition as={Fragment} leave='transition ease-in duration-100' leaveFrom='opacity-100' leaveTo='opacity-0'>
             <Listbox.Options className='absolute w-full py-1 mt-1 overflow-auto bg-white dark:bg-gray-700 rounded-md max-h-60 focus:outline-none text-sm shadow'>
               {languages.map(language => (
                 <Listbox.Option
@@ -52,22 +45,14 @@ export default function LanguageSelect() {
                   value={language.name}>
                   {({ selected, active }) => (
                     <>
-                      <span
-                        className={`${
-                          selected ? 'font-medium' : 'font-normal'
-                        } block truncate`}>
+                      <span className={`${selected ? 'font-medium' : 'font-normal'} block truncate`}>
                         {language.name}
                       </span>
                       {selected ? (
                         <span
-                          className={`${
-                            active ? 'text-gray-600' : 'text-gray-600'
-                          }
+                          className={`${active ? 'text-gray-600' : 'text-gray-600'}
                                 absolute inset-y-0 left-0 flex items-center pl-3`}>
-                          <CheckIcon
-                            className='w-5 h-5 dark:text-gray-400'
-                            aria-hidden='true'
-                          />
+                          <CheckIcon className='w-5 h-5 dark:text-gray-400' aria-hidden='true' />
                         </span>
                       ) : null}
                     </>
