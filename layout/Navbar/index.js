@@ -55,7 +55,7 @@ export default function Navbar() {
             <LanguageSelect />
           </div>
         </div>
-        <nav className={`${open ? 'block' : 'hidden'} pt-6 sm:flex sm:p-0 sm:space-x-2`}>
+        <nav className={`${open ? 'block' : 'hidden'} pt-6 sm:flex sm:p-0 sm:space-x-1`}>
           <Link href='/'>
             <a
               className={`${

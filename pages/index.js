@@ -8,7 +8,6 @@ import { getAllPosts } from 'lib/mdx'
 export default function Home({ home, posts }) {
   return (
     <Container title={home.pageTitle} description={home.description} image='/img/me.jpg'>
-      <div>hello</div>
       <section className='py-10 sm:flex sm:items-center sm:justify-between'>
         <div className='max-w-sm sm:m-0 order-2'>
           <div className='relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden'>
@@ -26,9 +25,11 @@ export default function Home({ home, posts }) {
             <h1 className='font-bold mb-2 text-gray-900 tracking-tight text-3xl sm:text-4xl dark:text-white'>
               Kevin Zuniga Cuellar
             </h1>
-            <h2 className='py-1 max-w-lg leading-relaxed text-gray-800 dark:text-gray-300'>{home.role}</h2>
+            <h2 className='py-1 max-w-lg font-semibold leading-relaxed text-gray-700 dark:text-gray-300'>
+              {home.role}
+            </h2>
           </div>
-          <p className='w-full leading-relaxed text-gray-600 sm:max-w-sm md:max-w-xl dark:text-gray-400'>
+          <p className='w-full leading-relaxed text-gray-600 sm:max-w-sm md:max-w-xl dark:text-gray-300'>
             {home.description}
           </p>
         </header>
